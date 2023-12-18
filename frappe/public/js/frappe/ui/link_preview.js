@@ -160,6 +160,17 @@ frappe.ui.LinkPreview = class {
 		this.popovers_list.push(this.element.data("bs.popover"));
 	}
 
+	generate_qr_from_url(url) {
+		// Create a new instance of QRCode
+		var qrcode = new QRCode(document.createElement("div"), {
+		  text: url,
+		  width: 128,
+		  height: 128,
+		});
+		// Get the SVG element from the QRCode instance
+		return qrcode._el.firstChild.toDataURL();
+	  }
+
 	get_popover_html(preview_data) {
 		if (!this.href) {
 			this.href = window.location.href;
@@ -180,9 +191,9 @@ frappe.ui.LinkPreview = class {
 					<div class="text-muted preview-title">${this.get_id_html(preview_data)}</div>
 				</div>
 			</div>
-			<hr>
 			<div class="popover-body">
 				${this.get_content_html(preview_data)}
+				<div class="qr-popover" style="text-align: end;"><img src="${this.generate_qr_from_url(`${window.location.hostname}${this.href}`)}" data-qr="${this.href}" width="64" height="64"/></div>
 			</div>
 		`;
 
