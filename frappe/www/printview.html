@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
-	<meta name="generator" content="frappe">
+	<meta name="generator" content="frappe" data-pdf="555555">
 	{{ include_style('print.bundle.css') }}
 	{% if print_style %}
 		<style>
@@ -13,7 +13,7 @@
 	{% endif %}
 </head>
 <body>
-	<div class="action-banner print-hide">
+	<div class="action-banner print-hide" data-pdf="data-print-debug-content">
 		<a class="p-2" onclick="window.print();">
 			{{ _("Print") }}
 		</a>

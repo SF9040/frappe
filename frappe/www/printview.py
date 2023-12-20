@@ -65,7 +65,7 @@ def get_context(context):
 		"body": body,
 		"print_style": print_style,
 		"comment": frappe.session.user,
-		"title": frappe.utils.strip_html(doc.get_title() or doc.name),
+		"title": frappe.utils.strip_html(doc.name or doc.get_title()),
 		"lang": frappe.local.lang,
 		"layout_direction": "rtl" if is_rtl() else "ltr",
 		"doctype": frappe.form_dict.doctype,
@@ -145,8 +145,10 @@ def get_rendered_template(
 		def get_template_from_string():
 			return jenv.from_string(get_print_format(doc.doctype, print_format))
 
-		if print_format.custom_format:
+		if print_format and print_format.custom_format:
 			template = get_template_from_string()
+			print("\t custom printing...")
+			print_settings.update({'pdf_width': print_format.pdf_width ,'pdf_height': print_format.pdf_height, 'custom_format': print_format.custom_format})
 
 		elif print_format.format_data:
 			# set format data
@@ -206,6 +208,7 @@ def get_rendered_template(
 		}
 	)
 
+	print("ddddddddddd", print_settings)
 	try:
 		html = template.render(args, filters={"len": len})
 	except Exception as e:
@@ -313,6 +316,9 @@ def get_html_and_style(
 
 	print_format = get_print_format_doc(print_format, meta=meta or frappe.get_meta(doc.doctype))
 	set_link_titles(doc)
+
+
+	frappe.log_error(frappe.get_traceback(), "++++++++++++++++++++++++++++=+++++ Option {0}".format(doc))
 
 	try:
 		html = get_rendered_template(
@@ -545,32 +551,60 @@ def has_value(df, doc):
 
 def get_print_style(style=None, print_format=None, for_legacy=False):
 	print_settings = frappe.get_doc("Print Settings")
+	 
+	print("mmmmmmmmmmmmmm", print_format.custom_format if print_format else None )
+	stp = "" 	
+	if print_format and print_format.custom_format == 1:
+		print("innnn")
+		stp = """
+		@media print {{  
+			@page {{  
+			size:{0}mm {1}mm;  
+			}}  
+		}}
+		@page {{
+			padding: 0;
+			margin: 0;
+			size:{2}in {3}in;
+		}}
+		""".format( print_format.pdf_width, print_format.pdf_height, print_format.pdf_width/25.4,  print_format.pdf_height/25.4)
+		stp = stp + print_format.css
+		context = {
+			"print_format": print_format,
+			"print_settings": print_settings,
+			"print_style": stp,
+			"font": get_font(print_settings, print_format, for_legacy),
+		}
+		return stp
+	else:
+		print("iiii")
+		if not style:
+			stp = print_settings.print_style or ""
 
-	if not style:
-		style = print_settings.print_style or ""
+		print("NNNNNNNNNNNNNNNNNNNNN", style)
+		context = {
+			"print_format": print_format,
+			"print_settings": print_settings,
+			"print_style": "\n\n" + stp,
+			"font": get_font(print_settings, print_format, for_legacy),
+		}
 
-	context = {
-		"print_settings": print_settings,
-		"print_style": style,
-		"font": get_font(print_settings, print_format, for_legacy),
-	}
+		css = frappe.get_template("templates/styles/standard.css").render(context)
 
-	css = frappe.get_template("templates/styles/standard.css").render(context)
+		if style and frappe.db.exists("Print Style", style):
+			css = css + "\n" + frappe.db.get_value("Print Style", style, "css")
 
-	if style and frappe.db.exists("Print Style", style):
-		css = css + "\n" + frappe.db.get_value("Print Style", style, "css")
+		# move @import to top
+		for at_import in list(set(re.findall(r"(@import url\([^\)]+\)[;]?)", css))):
+			css = css.replace(at_import, "")
 
-	# move @import to top
-	for at_import in list(set(re.findall(r"(@import url\([^\)]+\)[;]?)", css))):
-		css = css.replace(at_import, "")
+			# prepend css with at_import
+			css = at_import + css
 
-		# prepend css with at_import
-		css = at_import + css
+		if print_format and print_format.css:
+			css += "\n\n" + print_format.css
 
-	if print_format and print_format.css:
-		css += "\n\n" + print_format.css
-
-	return css
+		return css
 
 
 def get_font(print_settings, print_format=None, for_legacy=False):
