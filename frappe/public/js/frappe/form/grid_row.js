@@ -606,9 +606,9 @@ export default class GridRow {
 			}
 		});
 
-		if (total_column_width && total_column_width > 10) {
-			frappe.throw(__("The total column width cannot be more than 10."));
-		}
+		// if (total_column_width && total_column_width > 10) {
+		// 	frappe.throw(__("The total column width cannot be more than 10."));
+		// }
 	}
 
 	remove_selected_column() {
