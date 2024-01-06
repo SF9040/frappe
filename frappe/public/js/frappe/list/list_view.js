@@ -636,7 +636,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 		const $columns = this.columns
 			.map((col) => {
 				let classes = [
-					"list-row-col ellipsis",
+					"list-row-col no--ellipsis",
 					col.type == "Subject" ? "list-subject level" : "hidden-xs",
 					col.type == "Tag" ? "tag-col hide" : "",
 					frappe.model.is_numeric_field(col.df) ? "text-right" : "",
