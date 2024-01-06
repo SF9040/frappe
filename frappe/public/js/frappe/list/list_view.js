@@ -426,6 +426,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 	reorder_listview_fields() {
 		let fields_order = [];
 		let fields = JSON.parse(this.list_view_settings.fields);
+		console.log("🚀 ~ file: list_view.js:429 ~ ListView ~ reorder_listview_fields ~ fields", fields)
 
 		//title and tags field is fixed
 		fields_order.push(this.columns[0]);
@@ -446,7 +447,8 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 				}
 			}
 		}
-
+		console.log("🚀 ~ file: list_view.js:449 ~ ListView ~ reorder_listview_fields ~ columns", this.columns)
+		console.log("🚀 ~ file: list_view.js:450 ~ ListView ~ reorder_listview_fields ~ fields_order:", fields_order)
 		return fields_order;
 	}
 
@@ -620,6 +622,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 	}
 
 	get_header_html() {
+		console.log("🚀 ~ file: list_view.js:676 ~ ListView ~ get_header_html ~ this.columns", this.columns)
 		if (!this.columns) {
 			return;
 		}
@@ -633,10 +636,13 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			</span>
 			<span class="level-item">${__(subject_field.label)}</span>
 		`;
-		const $columns = this.columns
-			.map((col) => {
+		const $columns = this.columns.sort((a, b) => {
+			if (a.type === "Field" && a.df.label === "ID") return -2;
+			if (b.type === "Field" && b.df.label === "ID") return 2;
+			return a.idx - b.idx; // Sorting by index if "ID" is not present
+		  }).map((col) => {
 				let classes = [
-					"list-row-col no--ellipsis",
+					"list-row-col ellipsis",
 					col.type == "Subject" ? "list-subject level" : "hidden-xs",
 					col.type == "Tag" ? "tag-col hide" : "",
 					frappe.model.is_numeric_field(col.df) ? "text-right" : "",
@@ -679,7 +685,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 	}
 
 	get_left_html(doc) {
-		return this.columns.map((col) => this.get_column_html(col, doc)).join("");
+		return this.columns.sort.map((col) => this.get_column_html(col, doc)).join("");
 	}
 
 	get_right_html(doc) {
@@ -822,7 +828,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			Field: "hidden-xs",
 		};
 		const css_class = [
-			"list-row-col no--ellipsis",
+			"list-row-col ellipsis",
 			class_map[col.type],
 			frappe.model.is_numeric_field(df) ? "text-right" : "",
 		].join(" ");
