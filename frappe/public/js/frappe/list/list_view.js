@@ -822,7 +822,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			Field: "hidden-xs",
 		};
 		const css_class = [
-			"list-row-col ellipsis",
+			"list-row-col no--ellipsis",
 			class_map[col.type],
 			frappe.model.is_numeric_field(df) ? "text-right" : "",
 		].join(" ");
