@@ -193,7 +193,7 @@ frappe.ui.LinkPreview = class {
 			</div>
 			<div class="popover-body">
 				${this.get_content_html(preview_data)}
-				<div class="qr-popover" style="text-align: end;"><img src="${this.generate_qr_from_url(`${window.location.hostname}${this.href}`)}" data-qr="${this.href}" width="64" height="64"/></div>
+				<div class="qr-popover" style="text-align: end;"><img src="${this.generate_qr_from_url(`https://${window.location.hostname}${this.href}`)}" data-qr="${this.href}" width="64" height="64"/></div>
 			</div>
 		`;
 
