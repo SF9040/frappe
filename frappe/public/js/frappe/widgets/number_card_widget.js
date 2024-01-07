@@ -24,6 +24,7 @@ export default class NumberCardWidget extends Widget {
 
 	set_body() {
 		this.widget.addClass("number-widget-box");
+		this.widget.attr("style", `background-image: url('data:image/svg+xml,<svg width="671" height="657" viewBox="0 0 671 657" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25" filter="url(%23filter0_f_11_79)"><ellipse cx="335.5" cy="328.5" rx="185.5" ry="178.5" fill="url(%23paint0_linear_11_79)"/></g><defs><filter id="filter0_f_11_79" x="0" y="0" width="671" height="657" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_11_79"/></filter><linearGradient id="paint0_linear_11_79" x1="335.5" y1="150" x2="335.5" y2="507" gradientUnits="userSpaceOnUse"><stop stop-color="${encodeURIComponent(this.card_doc.color ? this.card_doc.color : '#0066cc')}"/><stop offset="1" stop-color="${encodeURIComponent(this.card_doc.color ? this.card_doc.color : '#0066cc')}"/></linearGradient></defs></svg>');`);
 		this.make_card();
 	}
 
