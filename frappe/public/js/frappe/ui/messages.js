@@ -387,7 +387,7 @@ frappe.hide_progress = function () {
 };
 
 // Floating Message
-frappe.show_alert = frappe.toast = function (message, seconds = 7, actions = {}) {
+frappe.show_alert = frappe.toast = function (message, seconds = 40, actions = {}) {
 	let indicator_icon_map = {
 		orange: "solid-warning",
 		yellow: "solid-warning",
