@@ -637,8 +637,8 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			<span class="level-item">${__(subject_field.label)}</span>
 		`;
 		const $columns = this.columns.sort((a, b) => {
-			if (a.type === "Field" && a.df.label === "ID") return -2;
-			if (b.type === "Field" && b.df.label === "ID") return 2;
+			if (a.type === "Field" && a.df.label === "ID") return -1;
+			if (b.type === "Field" && b.df.label === "ID") return 1;
 			return a.idx - b.idx; // Sorting by index if "ID" is not present
 		  }).map((col) => {
 				let classes = [
