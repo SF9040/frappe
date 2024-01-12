@@ -9,7 +9,7 @@
  "hide_custom": 0,
  "icon": "tool",
  "idx": 0,
- "is_hidden": 0,
+ "is_hidden": 1,
  "label": "Build",
  "links": [
   {
@@ -333,7 +333,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-05-24 14:47:24.395259",
+ "modified": "2023-12-24 14:19:32.725214",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Build",
@@ -344,7 +344,7 @@
  "quick_lists": [],
  "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 16.0,
+ "sequence_id": 9.0,
  "shortcuts": [
   {
    "color": "Grey",
