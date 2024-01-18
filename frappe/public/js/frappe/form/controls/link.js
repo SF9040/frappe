@@ -216,7 +216,16 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 					// because it will not visible otherwise
 					(me.is_title_link() || d.value !== d.description)
 				) {
-					html += '<br><span class="small">' + __(d.description) + "</span>";
+					if (d.description) {
+						html += '<br>';  // Add <br> at the beginning
+					
+						var descriptions = d.description.split(',');
+						console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ descriptions:", descriptions)
+					
+						for (var i = 0; i < descriptions.length; i++) {
+							html += '<div class="dl-item" style="font-weight: 400;">' + __(descriptions[i].trim()) + "</div>";
+						}
+					}
 				}
 				return $("<li></li>")
 					.data("item.autocomplete", d)
