@@ -2,14 +2,14 @@
 	font-family: 'RMNeueTRIAL-Regular';
 	font-display: swap;
 	font-weight: 400;
-	src: url("/assets/frappe/css/fonts/manifest/RMNeueTRIAL-Regular.woff2") format("woff2");
+	src: url("/assets/frappe/css/fonts/rm/RMNeueTRIAL-Regular.woff2") format("woff2");
 }
 @font-face {
 	font-family: 'RMNeueTRIAL-Light';
 	font-display: swap;
 	font-style:  normal;
 	font-weight: 300;
-	src: url("/assets/frappe/css/fonts/manifest/RMNeueTRIAL-Light.woff2") format("woff2");
+	src: url("/assets/frappe/css/fonts/rm/RMNeueTRIAL-Light.woff2") format("woff2");
 }
 @font-face {
 	font-family: 'RMNeueTRIAL-Bold';
