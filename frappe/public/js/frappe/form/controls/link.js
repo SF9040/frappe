@@ -280,7 +280,7 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 							let filter_string = me.get_filter_description(args.filters);
 							if (filter_string) {
 								r.results.push({
-									html: `<span class="text-muted" style="line-height: 1.5">${filter_string}</span>`,
+									html: `<span style="line-height: 1.5">${filter_string}</span>`,
 									value: "",
 									action: () => {},
 								});
