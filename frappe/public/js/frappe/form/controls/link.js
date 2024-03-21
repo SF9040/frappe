@@ -238,9 +238,6 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 				return 0;
 			},
 		});
-			console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ item:", item)
-			console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ item:", item)
-			console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ item:", item)
 
 		this.custom_awesomplete_filter && this.custom_awesomplete_filter(this.awesomplete);
 
