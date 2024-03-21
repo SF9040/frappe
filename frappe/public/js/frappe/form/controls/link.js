@@ -205,6 +205,7 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 			item: function (item) {
 				console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ item:", item)
 				let d = this.get_item(item.value);
+				console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ item.value:", d)
 				if (!d.label) {
 					d.label = d.value;
 				}
