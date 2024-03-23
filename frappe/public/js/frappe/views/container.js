@@ -10,6 +10,8 @@ frappe.views.Container = class Container {
 	// Container contains pages inside `#container` and manages page creation, switching
 	constructor() {
 		this.container = $("#body").get(0);
+		console.log("🚀 ~ Container ~ constructor ~ container:", container)
+		
 		this.page = null; // current page
 		this.pagewidth = $(this.container).width();
 		this.pagemargin = 50;
