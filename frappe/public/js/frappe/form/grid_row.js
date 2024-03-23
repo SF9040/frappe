@@ -659,6 +659,7 @@ export default class GridRow {
 				? this.grid.user_defined_columns
 				: this.docfields;
 
+		const containsAddress = true;
 		this.grid.visible_columns.forEach((col, ci) => {
 			// to get update df for the row
 			let df = fields.find((field) => field?.fieldname === col[0].fieldname);
@@ -676,7 +677,7 @@ export default class GridRow {
 			}
 			let column;
 			if (!this.columns[df.fieldname] && !this.show_search) {
-				column = this.make_column(df, colsize, txt, ci);
+				column = this.make_column(df, colsize, txt, ci, containsAddress);
 			} else if (!this.columns[df.fieldname] && this.show_search) {
 				column = this.make_search_column(df, colsize);
 			} else {
@@ -831,7 +832,7 @@ export default class GridRow {
 		return $col;
 	}
 
-	make_column(df, colsize, txt, ci) {
+	make_column(df, colsize, txt, ci, expandable) {
 		let me = this;
 		var add_class =
 			["Text", "Small Text"].indexOf(df.fieldtype) !== -1
@@ -898,7 +899,8 @@ export default class GridRow {
 		}
 
 		var $col = $(
-			'<div class="address-pull col grid-static-col col-xs-' + colsize + " " + add_class + '"></div>'
+			// '<div class="address-pull col grid-static-col col-xs-' + colsize + " " + add_class + '"></div>'
+			`<div class="address-pull col ${expandable ? 'align-items-center d-flex': 'grid-static-col'} col-xs-${colsize} ${add_class}"></div>`
 		)
 			.attr("data-fieldname", df.fieldname)
 			.attr("data-fieldtype", df.fieldtype)
@@ -987,7 +989,7 @@ export default class GridRow {
 			});
 
 		$col.field_area = $('<div class="field-area"></div>').appendTo($col).toggle(false);
-		$col.static_area = $('<div class="static-area ellipsis"></div>').appendTo($col).html(txt);
+		$col.static_area = $(`<div class="static-area ${expandable ? '' : 'ellipsis'}"></div>`).appendTo($col).html(txt);
 
 		// set title attribute to see full label for columns in the heading row
 		if (!this.doc) {
