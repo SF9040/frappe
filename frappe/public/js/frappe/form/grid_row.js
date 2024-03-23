@@ -14,7 +14,6 @@ export default class GridRow {
 	make() {
 		let me = this;
 		let render_row = true;
-
 		this.wrapper = $('<div class="grid-row"></div>');
 		this.row = $('<div class="data-row row"></div>')
 			.appendTo(this.wrapper)
@@ -34,6 +33,7 @@ export default class GridRow {
 				}
 			});
 
+		// this.extend = $(`<div class="extended-data flex" style="margin-right: -15px;margin-left: -15px;">KKKKKKK</div>`).appendTo(this.wrapper);
 		if (this.grid.template && !this.grid.meta.editable_grid) {
 			this.render_template();
 		} else {
@@ -786,7 +786,7 @@ export default class GridRow {
 		}
 
 		let $col = $(
-			'<div class="col grid-static-col col-xs-' + colsize + ' search"></div>'
+			'<div class="address-push col grid-static-col col-xs-' + colsize + ' search"></div>'
 		).appendTo(this.row);
 
 		let $search_input = $(`
@@ -898,7 +898,7 @@ export default class GridRow {
 		}
 
 		var $col = $(
-			'<div class="col grid-static-col col-xs-' + colsize + " " + add_class + '"></div>'
+			'<div class="address-pull col grid-static-col col-xs-' + colsize + " " + add_class + '"></div>'
 		)
 			.attr("data-fieldname", df.fieldname)
 			.attr("data-fieldtype", df.fieldtype)
