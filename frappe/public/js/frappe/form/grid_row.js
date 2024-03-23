@@ -900,7 +900,7 @@ export default class GridRow {
 
 		var $col = $(
 			// '<div class="address-pull col grid-static-col col-xs-' + colsize + " " + add_class + '"></div>'
-			`<div class="address-pull col ${expandable ? 'align-items-center d-flex': 'grid-static-col'} col-xs-${colsize} ${add_class}"></div>`
+			`<div class="address-pull col ${expandable ? 'align-items-center d-flex px-0': 'grid-static-col'} col-xs-${colsize} ${add_class}"></div>`
 		)
 			.attr("data-fieldname", df.fieldname)
 			.attr("data-fieldtype", df.fieldtype)
