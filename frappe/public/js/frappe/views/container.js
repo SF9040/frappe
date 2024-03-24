@@ -12,6 +12,8 @@ frappe.views.Container = class Container {
 		this.container = $("#body").get(0);
 		console.log("🚀 ~ Container ~ constructor ~ container:", this.container)
 
+		console.log("🚀 ~ Container ~ constructor ~  typeof:", typeof(this.container))
+
 		const firstContainer = this.container.querySelector('.content.page-container .page-head .container:first-of-type');
 		console.log("🚀 ~ Container ~ constructor ~ firstContainer:", firstContainer)
 
