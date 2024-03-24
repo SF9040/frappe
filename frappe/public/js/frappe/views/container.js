@@ -28,7 +28,7 @@ frappe.views.Container = class Container {
 			frappe.breadcrumbs.rename(dt, old_name, new_name);
 		});
 
-
+		console.log("this.container.innerHTML: ", this.container.innerHTML);
 		console.log("🚀 ~ Container ~ constructor ~ container:", this.container)
 
 		console.log("🚀 ~ Container ~ constructor ~  typeof:", typeof(this.container))
