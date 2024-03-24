@@ -10,15 +10,6 @@ frappe.views.Container = class Container {
 	// Container contains pages inside `#container` and manages page creation, switching
 	constructor() {
 		this.container = $("#body").get(0);
-		console.log("🚀 ~ Container ~ constructor ~ container:", this.container)
-
-		console.log("🚀 ~ Container ~ constructor ~  typeof:", typeof(this.container))
-
-		const firstContainer = this.container.querySelector('.content.page-container .page-head .container:first-of-type');
-		console.log("🚀 ~ Container ~ constructor ~ firstContainer:", firstContainer)
-
-		const pageBodyContainer = this.container.querySelector('.container.page-body');
-		console.log("🚀 ~ Container ~ constructor ~ pageBodyContainer:", pageBodyContainer)
 		
 		this.page = null; // current page
 		this.pagewidth = $(this.container).width();
@@ -36,6 +27,17 @@ frappe.views.Container = class Container {
 		$(document).bind("rename", function (event, dt, old_name, new_name) {
 			frappe.breadcrumbs.rename(dt, old_name, new_name);
 		});
+
+
+		console.log("🚀 ~ Container ~ constructor ~ container:", this.container)
+
+		console.log("🚀 ~ Container ~ constructor ~  typeof:", typeof(this.container))
+
+		const firstContainer = this.container.querySelector('.content.page-container .page-head .container');
+		console.log("First container:", firstContainer);
+		
+		const pageBodyContainer = this.container.querySelector('.container.page-body');
+		console.log("Page body container:", pageBodyContainer);
 	}
 	add_page(label) {
 		var page = $('<div class="content page-container"></div>')
