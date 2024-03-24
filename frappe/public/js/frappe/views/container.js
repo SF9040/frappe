@@ -33,11 +33,11 @@ frappe.views.Container = class Container {
 
 		console.log("🚀 ~ Container ~ constructor ~  typeof:", typeof(this.container))
 
-		const firstContainer = this.container.querySelector('.content.page-container .page-head .container');
-		console.log("First container:", firstContainer);
+		const firstContainer = $(this.container).find('.content.page-container .page-head .container:first');
+		console.log("First container:", firstContainer.length ? firstContainer : null);
 		
-		const pageBodyContainer = this.container.querySelector('.container.page-body');
-		console.log("Page body container:", pageBodyContainer);
+		const pageBodyContainer = $(this.container).find('.container.page-body');
+		console.log("Page body container:", pageBodyContainer.length ? pageBodyContainer : null);
 	}
 	add_page(label) {
 		var page = $('<div class="content page-container"></div>')
