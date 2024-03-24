@@ -11,6 +11,12 @@ frappe.views.Container = class Container {
 	constructor() {
 		this.container = $("#body").get(0);
 		console.log("🚀 ~ Container ~ constructor ~ container:", this.container)
+
+		const firstContainer = this.container.querySelector('.content.page-container .page-head .container:first-of-type');
+		console.log("🚀 ~ Container ~ constructor ~ firstContainer:", firstContainer)
+
+		const pageBodyContainer = this.container.querySelector('.container.page-body');
+		console.log("🚀 ~ Container ~ constructor ~ pageBodyContainer:", pageBodyContainer)
 		
 		this.page = null; // current page
 		this.pagewidth = $(this.container).width();
