@@ -251,13 +251,13 @@ export default class GridRow {
 			var txt = this.doc ? this.doc.idx : __("No.");
 
 			this.row_check = $(
-				`<div class="row-check sortable-handle col">
+				`<div class="row-check sortable-handle col" style="height: auto;">
 					${this.row_check_html}
 				</div>`
 			).appendTo(this.row);
 
 			this.row_index = $(
-				`<div class="row-index sortable-handle col">
+				`<div class="row-index sortable-handle col" style="height: auto;">
 					<span>${txt}</span>
 				</div>`
 			)
