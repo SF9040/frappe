@@ -27,16 +27,6 @@ frappe.views.Container = class Container {
 		$(document).bind("rename", function (event, dt, old_name, new_name) {
 			frappe.breadcrumbs.rename(dt, old_name, new_name);
 		});
-
-		console.log("this.container.innerHTML: ", $(this.container).html());
-		console.log("🚀 ~ Container ~ constructor ~ container:", this.container);
-	
-		const firstContainer = $(this.container).html().find('.content.page-container .page-head .container').first();
-		console.log("First container:", firstContainer.length ? firstContainer : null);
-	
-		const pageBodyContainer = $(this.container).html().find('.container.page-body');
-		console.log("Page body container:", pageBodyContainer.length ? pageBodyContainer : null);
-	
 	}
 	add_page(label) {
 		var page = $('<div class="content page-container"></div>')
