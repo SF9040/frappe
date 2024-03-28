@@ -270,6 +270,24 @@ class CardDialog extends WidgetDialog {
 						},
 					},
 					{
+						fieldtype: "Select",
+						fieldname: "doc_view",
+						label: "DocType View",
+						options: "List\nReport Builder\nDashboard\nTree\nNew\nCalendar\nKanban",
+						description: __(
+							"Which view of the associated DocType should this shortcut take you to?"
+						),
+						default: "List",
+						// depends_on: (state) => {
+						// 	// console.log("🚀 ~ CardDialog ~ get_fields ~ state:", state)
+						// 	// 	console.log("🚀 ~ CardDialog ~ get_fields ~ state:", state)
+						// 	// 	console.log("🚀 ~ CardDialog ~ get_fields ~ state.link_to:", state.link_to)
+						// 		// let is_single = frappe.boot.single_types.includes(state.link_to);
+						// 		// console.log("🚀 ~ CardDialog ~ get_fields ~ is_single:", is_single)
+						// 		return state.link_to && state.link_type == "DocType";
+						// },
+					},
+					{
 						fieldname: "column_break_7",
 						fieldtype: "Column Break",
 					},
