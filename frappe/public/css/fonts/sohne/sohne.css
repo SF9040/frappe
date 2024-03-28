@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'Söhne VF';
+	font-display: swap;
+	font-style:  normal;
+	font-weight: 500;
+	src: url("/assets/frappe/css/fonts/sohne/Sohne.ttf") format("truetype");
+}
+@font-face {
+	font-family: 'Söhne VF';
+	font-display: swap;
+	font-style: normal;
+	font-weight: 600;
+	src: url("/assets/frappe/css/fonts/sohne/Sohne.ttf") format("truetype");
+}
