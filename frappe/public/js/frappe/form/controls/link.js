@@ -220,7 +220,7 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 						html += '<br>';  // Add <br> at the beginning
 					
 						var descriptions = d.description.split(',');
-						console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ descriptions:", descriptions)
+						// console.log("🚀 ~ ControlLink ~ setup_awesomeplete ~ descriptions:", descriptions)
 					
 						for (var i = 0; i < descriptions.length; i++) {
 							html += '<div class="dl-item" style="font-weight: 400;">' + __(descriptions[i].trim()) + "</div>";
