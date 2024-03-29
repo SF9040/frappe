@@ -2,8 +2,12 @@
 
 body {
 	@include media-breakpoint-up(sm) {
-		background-color: var(--bg-light-gray);
+		/* background-color: var(--bg-light-gray); */
 	}
+}
+
+nav.navbar.navbar-light.navbar-expand-lg {
+ 	display: none !important;
 }
 
 .for-forgot,
@@ -25,7 +29,8 @@ body {
 			padding-top: 45px;
 			padding-bottom: 45px;
 			background-color: #fff;
-			box-shadow: var(--shadow-base);
+			/*  box-shadow: var(--shadow-base); */
+			box-shadow: inset 0 0 0 1px rgb(187, 201, 220) !important;
 		}
 	}
 
