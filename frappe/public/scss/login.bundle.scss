@@ -10,6 +10,14 @@ nav.navbar.navbar-light.navbar-expand-lg {
  	display: none !important;
 }
 
+.btn-primary {
+	font-weight: 500 !important;
+	background-color: rgb(0 115 230) !important;
+	color: rgb(255 255 255);
+	border: none !important;
+	box-shadow: none;
+}
+
 .for-forgot,
 .for-login-with-email-link,
 .for-signup,
@@ -87,8 +95,9 @@ nav.navbar.navbar-light.navbar-expand-lg {
 				line-height: 1;
 
 				> * {
-					color: var(--text-light);
-					font-size: var(--text-sm);
+					color: rgba(26, 41, 61, 0.796);
+					font-weight: 500;
+					font-size: var(--text-md);
 				}
 			}
 
@@ -187,6 +196,7 @@ nav.navbar.navbar-light.navbar-expand-lg {
 			margin-top: 1rem;
 			font-size: var(--text-xl);
 			color: var(--text-color);
+			font-family: "SF Pro Display", SF Pro Icons, Helvetica Neue, Helvetica, Arial, sans-serif;
 		}
 	}
 
