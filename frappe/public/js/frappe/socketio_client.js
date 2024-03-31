@@ -105,6 +105,10 @@ frappe.socketio = {
 	},
 	get_host: function (port = 3000) {
 		var host = window.location.origin;
+		if (host.includes("merp.supergraph.ai")) {
+			console.log("🚀 ~ merp.supergraph.ai socketio:", host)
+			return host; // No port is added if the domain is merp.supergraph.ai
+		}	
 		if (window.dev_server) {
 			var parts = host.split(":");
 			port = frappe.boot.socketio_port || port.toString() || "3000";
@@ -112,10 +116,7 @@ frappe.socketio = {
 				host = parts[0] + ":" + parts[1];
 			}
 			host = host + ":" + port;
-
-			console.log("🚀 ~ host dev:", host)
 		}
-		console.log("🚀 ~ host non-dev:", host)
 		return host;
 	},
 	subscribe: function (task_id, opts) {
