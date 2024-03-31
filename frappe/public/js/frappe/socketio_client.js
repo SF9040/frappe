@@ -112,7 +112,10 @@ frappe.socketio = {
 				host = parts[0] + ":" + parts[1];
 			}
 			host = host + ":" + port;
+
+			console.log("🚀 ~ host dev:", host)
 		}
+		console.log("🚀 ~ host non-dev:", host)
 		return host;
 	},
 	subscribe: function (task_id, opts) {
