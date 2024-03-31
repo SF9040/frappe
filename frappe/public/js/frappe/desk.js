@@ -31,6 +31,7 @@ frappe.Application = class Application {
 	}
 
 	startup() {
+		console.log("🚀 ~ Application ~ startup ~ init:", init)
 		frappe.socketio.init();
 		frappe.model.init();
 
