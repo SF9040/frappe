@@ -27,7 +27,7 @@ from frappe.modules import scrub
 from frappe.utils.background_jobs import enqueue, get_jobs
 from frappe.website.utils import get_next_link, get_shade, get_toc
 from frappe.www.printview import get_visible_columns
-
+from pybaht import bahttext
 
 class ServerScriptNotEnabled(frappe.PermissionError):
 	pass
@@ -247,6 +247,7 @@ def get_safe_globals():
 		run_script=run_script,
 		is_job_queued=is_job_queued,
 		get_visible_columns=get_visible_columns,
+		bahttext=bahttext
 	)
 
 	add_module_properties(
