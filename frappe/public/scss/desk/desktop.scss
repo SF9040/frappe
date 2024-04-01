@@ -1187,7 +1187,7 @@ body {
 
 				&.ce-block--focused {
 					.widget {
-						box-shadow: var(--shadow-base) !important;
+						// box-shadow: var(--shadow-base) !important;
 
 						.widget-control > * {
 							width: auto;
@@ -1286,8 +1286,8 @@ body {
 							padding: 7px 12px;
 
 							&:hover {
-								box-shadow: var(--shadow-base);
-								background-color: var(--fg-color);
+								box-shadow: none;
+								// background-color: var(--fg-color);
 							}
 
 							&.spacer {
@@ -1344,7 +1344,7 @@ body {
 							padding-left: 0px !important;
 							min-height: 40px;
 							box-shadow: none;
-							background-color: var(--control-bg);
+							background-color: #f5f8fd;
 							color: var(--text-muted);
 							cursor: text;
 
