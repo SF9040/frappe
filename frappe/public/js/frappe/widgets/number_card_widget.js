@@ -347,7 +347,7 @@ export default class NumberCardWidget extends Widget {
 
 	set_card_actions(actions) {
 		/* eslint-disable indent */
-		this.card_actions = $(`<div class="card-actions dropdown pull-right">
+		this.card_actions = $(`<div class="card-actions dropdown">
 				<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				...
 				</a>
