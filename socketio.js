@@ -1,9 +1,11 @@
 const cookie = require("cookie");
 const request = require("superagent");
-
+const { Logtail } = require("@logtail/node");
+const log = new Logtail("fhR9aUykKGZDtQ2xZPmXcdH5");
+log.info("socket.io started.")
 const { get_conf, get_redis_subscriber } = require("./node_utils");
 const conf = get_conf();
-const log = console.log; // eslint-disable-line
+// const log = console.log; // eslint-disable-line
 const subscriber = get_redis_subscriber();
 
 const io = require("socket.io")(conf.socketio_port, {
@@ -277,15 +279,15 @@ function can_subscribe_doc(args) {
 		})
 		.end(function (err, res) {
 			if (!res) {
-				log("No response for doc_subscribe");
+				log.info("No response for doc_subscribe");
 			} else if (res.status == 403) {
 				return;
 			} else if (err) {
-				log(err);
+				log.info(err);
 			} else if (res.status == 200) {
 				args.callback(err, res);
 			} else {
-				log("Something went wrong", err, res);
+				log.info("Something went wrong", err, res);
 			}
 		});
 }
@@ -303,14 +305,14 @@ function can_subscribe_doctype(args) {
 		.end(function (err, res) {
 			if (!res || res.status == 403 || err) {
 				if (err) {
-					log(err);
+					log.error(err);
 				}
 				return false;
 			} else if (res.status == 200) {
 				args.callback && args.callback(err, res);
 				return true;
 			}
-			log("ERROR (can_subscribe_doctype): ", err, res);
+			log.error("ERROR (can_subscribe_doctype): ", err, res);
 		});
 }
 
@@ -344,3 +346,17 @@ function send_users(args, action) {
 		users: Array.from(new Set(users)),
 	});
 }
+
+function gracefulShutdown() {
+    log.info("Application is initiating a graceful shutdown. Flushing logs...");
+
+    log.flush().then(() => {
+        console.log("All logs have been flushed to Logtail.");
+    }).catch((error) => {
+        console.error("Failed to flush logs to Logtail:", error);
+    });
+}
+
+// Sample usage - This is just an example. Integrate it where it makes sense for your application.
+process.on('SIGINT', gracefulShutdown);
+process.on('SIGTERM', gracefulShutdown);
