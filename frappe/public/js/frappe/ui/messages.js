@@ -419,7 +419,7 @@ frappe.show_alert = frappe.toast = function (message, seconds = 40, actions = {}
 		<div class="alert desk-alert ${indicator}" role="alert">
 			<div class="alert-message-container">
 				<div class="alert-title-container">
-					<div class="alert-conic-gradient" data-indicator="${indicator}">
+					<div class="alert-conic-gradient" data-indicator="${indicator}"/></div>
 					<div class="new-icon-lumo" data-icon="${icon}" data-indicator="${indicator}"></div>
 					<div class="alert-message">${message.message}</div>
 				</div>
