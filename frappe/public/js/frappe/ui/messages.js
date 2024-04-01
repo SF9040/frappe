@@ -439,7 +439,7 @@ frappe.show_alert = frappe.toast = function (message, seconds = 40, actions = {}
 		div.find(".alert-body").show().html(message.body);
 	}
 
-	div.find(".close, button").click(function () {
+	div.find(`[data-close="x"], button`).click(function () {
 		div.addClass("out");
 		setTimeout(() => div.remove(), 800);
 		return false;
