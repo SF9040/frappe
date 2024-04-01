@@ -630,16 +630,17 @@ body {
 				font-size: var(--text-base);
 				margin-top: var(--margin-xs);
 			}
+		}
 
-			.widget-control {
-				right: -10px;
-				top: -10px;
-				height: 0px;
-			}
 
-			.card-actions {
-				margin-top: -15px;
-			}
+		.widget-control {
+			right: -10px;
+			top: -10px;
+			height: 0px;
+		}
+
+		.card-actions {
+			margin-top: -15px;
 		}
 
 		.widget-body {
