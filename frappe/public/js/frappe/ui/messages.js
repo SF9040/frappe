@@ -415,6 +415,8 @@ frappe.show_alert = frappe.toast = function (message, seconds = 40, actions = {}
 
 	const indicator = message.indicator || "blue";
 
+	// <a class="close d-flex">${frappe.utils.icon("close-alt")}</a>
+
 	const div = $(`
 		<div class="alert desk-alert ${indicator}" role="alert">
 			<div class="alert-message-container">
@@ -426,7 +428,8 @@ frappe.show_alert = frappe.toast = function (message, seconds = 40, actions = {}
 				<div class="alert-subtitle">${message.subtitle || ""}</div>
 			</div>
 			<div class="alert-body" style="display: none"></div>
-			<a class="close d-flex">${frappe.utils.icon("close-alt")}</a>
+			<a class="close d-flex" data-close="x"></a>
+
 		</div>
 	`);
 
