@@ -17,7 +17,7 @@ class Picker {
 			<div class="icon-picker">
 				<div class="search-icons">
 					<input type="search" placeholder="Search for icons.." class="form-control">
-					<span class="search-icon material-symbols-rounded">search</span>
+					<span class="search-icon material-symbols-outlined">search</span>
 				</div>
 				<div class="icon-section">
 					<div class="icons"></div>
@@ -34,7 +34,7 @@ class Picker {
 	setup_icons() {
         // Initially, only set up the selected icon if it exists
         if (this.icon) {
-            let $icon = $(`<div id="${this.icon}" class="icon-wrapper material-symbols-rounded">${this.icon}</div>`);
+            let $icon = $(`<div id="${this.icon}" class="icon-wrapper material-symbols-outlined">${this.icon}</div>`);
             this.icon_wrapper.append($icon);
             $icon.on("click", () => {
 				
@@ -64,7 +64,7 @@ class Picker {
 
 			// Append icons that match the search criteria
 			this.icons.filter(icon => icon.includes(value)).forEach(icon => {
-				let $icon = $(`<div id="${icon}" class="icon-wrapper material-symbols-rounded">${icon}</div>`);
+				let $icon = $(`<div id="${icon}" class="icon-wrapper material-symbols-outlined">${icon}</div>`);
 				this.icon_wrapper.append($icon);
 				$icon.on("click", () => {
 					this.set_icon(icon);
