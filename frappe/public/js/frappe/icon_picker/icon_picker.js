@@ -17,7 +17,7 @@ class Picker {
 			<div class="icon-picker">
 				<div class="search-icons">
 					<input type="search" placeholder="Search for icons.." class="form-control">
-					<span class="search-icon">${frappe.utils.icon("search", "sm")}</span>
+					<span class="search-icon material-symbols-rounded">search</span>
 				</div>
 				<div class="icon-section">
 					<div class="icons"></div>
@@ -32,43 +32,57 @@ class Picker {
 	}
 
 	setup_icons() {
-		this.icons.forEach((icon) => {
-			let $icon = $(
-				`<div id="${icon}" class="icon-wrapper">${frappe.utils.icon(icon, "md")}</div>`
-			);
-			this.icon_wrapper.append($icon);
-			const set_values = () => {
-				this.set_icon(icon);
-				this.update_icon_selected();
-			};
-			$icon.on("click", () => {
-				set_values();
+        // Initially, only set up the selected icon if it exists
+        if (this.icon) {
+            let $icon = $(`<div id="${this.icon}" class="icon-wrapper material-symbols-rounded">${this.icon}</div>`);
+            this.icon_wrapper.append($icon);
+            $icon.on("click", () => {
+				
+				this.set_icon(this.icon);
+				this.update_icon_selected(); // This will now also update the UI and notify ControlIcon
 			});
-			$icon.keydown((e) => {
-				const key_code = e.keyCode;
-				if ([13, 32].includes(key_code)) {
-					e.preventDefault();
-					set_values();
-				}
+        }
+
+        this.search_input.keyup((e) => {
+            e.preventDefault();
+            this.filter_icons();
+        });
+
+        this.search_input.on("search", () => {
+            this.filter_icons();
+        });
+    }
+
+    filter_icons() {
+        let value = this.search_input.val().toLowerCase();
+        console.log("Search value:", value);
+
+        // Check if the input length is more than 3 characters
+		if (value.length >= 3) {
+			// Clear the current icons display
+			this.icon_wrapper.empty();
+
+			// Append icons that match the search criteria
+			this.icons.filter(icon => icon.includes(value)).forEach(icon => {
+				let $icon = $(`<div id="${icon}" class="icon-wrapper material-symbols-rounded">${icon}</div>`);
+				this.icon_wrapper.append($icon);
+				$icon.on("click", () => {
+					this.set_icon(icon);
+					this.update_icon_selected();
+				});
+				$icon.keydown((e) => {
+					const key_code = e.keyCode;
+					if ([13, 32].includes(key_code)) {
+						e.preventDefault();
+						this.set_icon(icon);
+						this.update_icon_selected();
+					}
+				});
 			});
-		});
-		this.search_input.keyup((e) => {
-			e.preventDefault();
-			this.filter_icons();
-		});
-
-		this.search_input.on("search", () => {
-			this.filter_icons();
-		});
-	}
-
-	filter_icons() {
-		let value = this.search_input.val();
-		if (!value) {
-			this.icon_wrapper.find(".icon-wrapper").removeClass("hidden");
 		} else {
-			this.icon_wrapper.find(".icon-wrapper").addClass("hidden");
-			this.icon_wrapper.find(`.icon-wrapper[id*='${value}']`).removeClass("hidden");
+			// Optionally, clear the icons display or show some default state if the input is less than 4 characters
+			this.icon_wrapper.empty();
+			// You could also display a message or keep the icons as they were before
 		}
 	}
 
@@ -77,11 +91,14 @@ class Picker {
 	}
 
 	set_icon(icon) {
-		this.icon = icon || "";
+		this.icon = icon || "folder";
+		this.update_icon_selected(); // Call this to visually update the selected icon
+		this.refresh(); // Refresh the picker UI to reflect the current icon
+
 	}
 
 	get_icon() {
-		return this.icon || "";
+		return this.icon || "folder";
 	}
 }
 

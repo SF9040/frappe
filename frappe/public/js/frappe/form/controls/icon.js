@@ -8,19 +8,30 @@ frappe.ui.form.ControlIcon = class ControlIcon extends frappe.ui.form.ControlDat
 		this.make_icon_input();
 	}
 
-	get_all_icons() {
-		frappe.symbols = [];
-		$("#frappe-symbols > symbol[id]").each(function () {
-			this.id.includes("icon-") && frappe.symbols.push(this.id.replace("icon-", ""));
-		});
+	async get_all_icons() {
+		const iconsJsonUrl = '/files/material_symbols_outlined.json';
+		try {
+			const response = await fetch(iconsJsonUrl);
+			if (!response.ok) throw new Error('Network response was not ok');
+			const iconsData = await response.json();
+			// Assuming frappe.symbols is where you intend to store these icons
+			frappe.symbols = iconsData; // Make sure this is accessible where needed
+			return iconsData; // Return icons data for further processing
+		} catch (error) {
+			console.error('Error fetching the icon JSON:', error);
+			frappe.symbols = []
+		}
 	}
 
-	make_icon_input() {
+	async make_icon_input() {
 		let picker_wrapper = $("<div>");
+
+		const icons = await this.get_all_icons(); // Ensure this is awaited
+
 		this.picker = new Picker({
 			parent: picker_wrapper,
 			icon: this.get_icon(),
-			icons: frappe.symbols,
+			icons: icons,
 		});
 
 		this.$wrapper
@@ -50,11 +61,13 @@ frappe.ui.form.ControlIcon = class ControlIcon extends frappe.ui.form.ControlDat
 
 		this.picker.on_change = (icon) => {
 			this.set_value(icon);
+			this.update_icon_display(icon); // You may need to implement this method
+
 		};
 
 		if (!this.selected_icon) {
 			this.selected_icon = $(
-				`<div class="selected-icon">${frappe.utils.icon("folder-normal", "md")}</div>`
+				`<div class="selected-icon material-symbols-rounded">${this.get_icon()}</div>`
 			);
 			this.selected_icon.insertAfter(this.$input);
 		}
@@ -77,6 +90,10 @@ frappe.ui.form.ControlIcon = class ControlIcon extends frappe.ui.form.ControlDat
 					this.$wrapper.popover("hide");
 				});
 			});
+		
+		this.picker.set_icon(this.get_icon()); // Ensure Picker shows the initial or current value
+
+		this.update_icon_display(this.get_icon());
 	}
 
 	refresh() {
@@ -88,14 +105,15 @@ frappe.ui.form.ControlIcon = class ControlIcon extends frappe.ui.form.ControlDat
 		}
 	}
 
-	set_formatted_input(value) {
-		super.set_formatted_input(value);
-		this.$input.val(value);
-		this.selected_icon.find("use").attr("href", "#icon-" + (value || "folder-normal"));
-		this.selected_icon.toggleClass("no-value", !value);
-	}
 
 	get_icon() {
-		return this.get_value() || "folder-normal";
+		return this.get_value() || "folder";
 	}
+
+	update_icon_display(icon) {
+		if (this.selected_icon) {
+			this.selected_icon.text(icon); // Update the text of the selected icon element
+		}
+	}
+	
 };
