@@ -7,7 +7,7 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "tool",
+ "icon": "tools_pliers_wire_stripper",
  "idx": 0,
  "is_hidden": 1,
  "label": "Tools",
@@ -194,7 +194,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-24 14:19:32.562612",
+ "modified": "2024-04-03 02:54:58.300173",
  "modified_by": "Administrator",
  "module": "Automation",
  "name": "Tools",

@@ -7,7 +7,7 @@
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "user",
+ "icon": "people",
  "idx": 0,
  "is_hidden": 0,
  "label": "Users",
@@ -147,7 +147,7 @@
    "type": "Link"
   }
  ],
- "modified": "2023-12-24 20:47:56.651134",
+ "modified": "2024-04-03 01:51:48.418687",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Users",
