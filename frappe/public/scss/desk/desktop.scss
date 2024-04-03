@@ -1342,7 +1342,7 @@ body {
 							padding-left: 0px !important;
 							min-height: 40px;
 							box-shadow: none;
-							background-color: #f5f8fd;
+							border: 1px dashed #c0c6cc;
 							color: var(--text-muted);
 							cursor: text;
 
@@ -1352,7 +1352,7 @@ body {
 						}
 
 						&.shortcut {
-							background-color: #f5f8fd;
+							border: 1px dashed #c0c6cc;
 						}
 
 						&:focus {
