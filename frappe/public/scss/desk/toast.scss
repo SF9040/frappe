@@ -44,10 +44,11 @@
 	position: relative;
 	padding: 0px;
 	border-radius: var(--border-radius-md);
+	padding: 0 10px;
 
 	.alert-message-container {
-		padding: var(--padding-md);
-		padding-right: var(--padding-2xl);
+		// padding: var(--padding-md);
+		// padding-right: var(--padding-2xl);
 
 		.icon {
 			margin-right: var(--margin-sm);
