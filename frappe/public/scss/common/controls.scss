@@ -111,7 +111,7 @@ select.form-control {
 	font-size: var(--text-md);
 	.control-label.reqd:after {
 		content: " *";
-		color: var(--red-400);
+		color: var(--primary-error-color);
 	}
 	.help:empty {
 		display: none;
