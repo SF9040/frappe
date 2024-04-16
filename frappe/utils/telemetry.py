@@ -21,7 +21,7 @@ def add_bootinfo(bootinfo):
 
 	bootinfo.posthog_host = frappe.conf.get(POSTHOG_HOST_FIELD)
 	bootinfo.posthog_project_id = frappe.conf.get(POSTHOG_PROJECT_FIELD)
-	bootinfo.enable_telemetry = True
+	bootinfo.enable_telemetry = False
 	bootinfo.telemetry_site_age = site_age()
 
 
