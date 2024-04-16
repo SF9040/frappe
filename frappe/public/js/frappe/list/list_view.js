@@ -489,7 +489,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			: "";
 
 		return `<div class="msg-box no-border">
-			<div class="material-symbols-outlined">note_stack_add</div>
+			<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 			<p>${no_result_message}</p>
 			${new_button}
 			${help_link}
