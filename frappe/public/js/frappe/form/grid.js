@@ -72,11 +72,7 @@ export default class Grid {
 						<div class="grid-body">
 							<div class="rows"></div>
 							<div class="grid-empty text-center">
-								<img
-									src="/assets/frappe/images/ui-states/grid-empty-state.svg"
-									alt="Grid Empty State"
-									class="grid-empty-illustration"
-								>
+								<div class="material-symbols-outlined" style="font-size: xxx-large;">data_table</div>
 								${__("No Data")}
 							</div>
 						</div>
