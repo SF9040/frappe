@@ -1,1 +1,1 @@
-import "./telemetry/index.js";
+// import "./telemetry/index.js";
