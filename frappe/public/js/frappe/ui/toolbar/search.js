@@ -103,10 +103,7 @@ frappe.search.SearchDialog = class {
 		var $placeholder = $(`<div class="row search-results hide">
 			<div class="empty-state">
 				<div class="text-center">
-					<img src="/assets/frappe/images/ui-states/search-empty-state.svg"
-						alt="Generic Empty State"
-						class="null-state"
-					>
+					<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 					<div class="empty-state-text">${status_text}</div>
 				</div>
 			</div>

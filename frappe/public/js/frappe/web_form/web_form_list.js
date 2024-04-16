@@ -234,10 +234,7 @@ export default class WebFormList {
 			<div class="no-result text-muted flex justify-center align-center">
 				<div class="text-center">
 					<div>
-						<img
-							src="/assets/frappe/images/ui-states/list-empty-state.svg"
-							alt="Generic Empty State"
-							class="null-state">
+					<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 					</div>
 					<p class="small mb-2">${__("No {0} found", [__(this.doctype)])}</p>
 					${new_button}

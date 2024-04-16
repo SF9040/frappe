@@ -489,9 +489,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 			: "";
 
 		return `<div class="msg-box no-border">
-			<div>
-				<img src="${empty_state_image}" alt="Generic Empty State" class="null-state">
-			</div>
+			<div class="material-symbols-outlined">note_stack_add</div>
 			<p>${no_result_message}</p>
 			${new_button}
 			${help_link}

@@ -95,7 +95,7 @@ frappe.views.QueryReport = class QueryReport extends frappe.views.BaseList {
 	get_no_result_message() {
 		return `<div class="msg-box no-border">
 			<div>
-				<img src="/assets/frappe/images/ui-states/list-empty-state.svg" alt="Generic Empty State" class="null-state">
+			<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 			</div>
 			<p>${__("Nothing to show")}</p>
 		</div>`;
@@ -984,7 +984,7 @@ frappe.views.QueryReport = class QueryReport extends frappe.views.BaseList {
 	show_loading_screen() {
 		const loading_state = `<div class="msg-box no-border">
 			<div>
-				<img src="/assets/frappe/images/ui-states/list-empty-state.svg" alt="Generic Empty State" class="null-state">
+			<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 			</div>
 			<p>${__("Loading")}...</p>
 		</div>`;

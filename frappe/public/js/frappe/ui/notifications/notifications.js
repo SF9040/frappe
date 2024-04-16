@@ -309,7 +309,7 @@ class NotificationsView extends BaseNotificationsView {
 				this.container.append(
 					$(`<div class="notification-null-state">
 					<div class="text-center">
-						<img src="/assets/frappe/images/ui-states/notification-empty-state.svg" alt="Generic Empty State" class="null-state">
+					<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 						<div class="title">${__("No New notifications")}</div>
 						<div class="subtitle">
 							${__("Looks like you haven’t received any notifications.")}
@@ -427,7 +427,7 @@ class EventsView extends BaseNotificationsView {
 			html = `
 				<div class="notification-null-state">
 					<div class="text-center">
-					<img src="/assets/frappe/images/ui-states/event-empty-state.svg" alt="Generic Empty State" class="null-state">
+					<div class="material-symbols-outlined" style="font-size: xxx-large;">note_stack_add</div>
 					<div class="title">${__("No Upcoming Events")}</div>
 					<div class="subtitle">
 						${__("There are no upcoming events for you.")}
