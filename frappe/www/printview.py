@@ -60,9 +60,16 @@ def get_context(context):
 		settings=settings,
 	)
 	print_style = get_print_style(frappe.form_dict.style, print_format)
+	
+	custom_header_content = print_format.custom_header or ''
+	custom_header = frappe.utils.jinja.render_template(custom_header_content, {"doc": doc.as_dict()})
 
+	custom_footer_content = print_format.custom_footer or ''
+	custom_footer = frappe.utils.jinja.render_template(custom_footer_content, {"doc": doc.as_dict()})
 	return {
 		"body": body,
+		"custom_header": custom_header,
+		"custom_footer": custom_footer,
 		"print_style": print_style,
 		"comment": frappe.session.user,
 		"title": frappe.utils.strip_html(doc.name or doc.get_title()),
@@ -568,7 +575,7 @@ def get_print_style(style=None, print_format=None, for_legacy=False):
 			size:{2}in {3}in;
 		}}
 		""".format( print_format.pdf_width, print_format.pdf_height, print_format.pdf_width/25.4,  print_format.pdf_height/25.4)
-		stp = stp + print_format.css
+		stp = stp + (print_format.css or '')
 		context = {
 			"print_format": print_format,
 			"print_settings": print_settings,
