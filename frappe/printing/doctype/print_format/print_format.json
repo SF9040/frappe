@@ -35,6 +35,8 @@
   "page_number",
   "css_section",
   "css",
+  "custom_header",
+  "custom_footer",
   "custom_html_help",
   "section_break_13",
   "print_format_help",
@@ -266,13 +268,23 @@
    "fieldname": "pdf_height",
    "fieldtype": "Float",
    "label": "PDF Height (in mm)"
+  },
+  {
+   "fieldname": "custom_header",
+   "fieldtype": "HTML Editor",
+   "label": "Custom Header"
+  },
+  {
+   "fieldname": "custom_footer",
+   "fieldtype": "HTML Editor",
+   "label": "Custom Footer"
   }
  ],
  "icon": "fa fa-print",
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-12-18 23:32:44.509682",
+ "modified": "2024-04-18 00:25:27.218608",
  "modified_by": "Administrator",
  "module": "Printing",
  "name": "Print Format",
