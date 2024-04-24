@@ -292,8 +292,8 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 								// new item
 								r.results.push({
 									html:
-										"<span class='text-primary link-option'>" +
-										"<i class='fa fa-plus' style='margin-right: 5px;'></i> " +
+										`<span class='link-option' style="display: flex;flex-wrap: nowrap;flex-direction: row;align-items: center;">` +
+										`<div class='material-symbols-outlined' style='margin-right: 5px;font-size: 23px;'>add</div> ` +
 										__("Create a new {0}", [__(me.get_options())]) +
 										"</span>",
 									label: __("Create a new {0}", [__(me.get_options())]),
@@ -316,8 +316,8 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 								// not applicable in web forms
 								r.results.push({
 									html:
-										"<span class='text-primary link-option'>" +
-										"<i class='fa fa-search' style='margin-right: 5px;'></i> " +
+										`<span class='link-option' style="display: flex;flex-wrap: nowrap;flex-direction: row;align-items: center;">` +
+										`<div class='material-symbols-outlined' style='margin-right: 5px;font-size: 23px;'>filter_alt</div> ` +
 										__("Advanced Search") +
 										"</span>",
 									label: __("Advanced Search"),
