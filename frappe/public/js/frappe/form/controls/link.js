@@ -227,7 +227,6 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 						}
 					}
 				}
-				console.log(d)
 				return $("<li></li>")
 					.data("item.autocomplete", d)
 					.prop("aria-selected", "false")
