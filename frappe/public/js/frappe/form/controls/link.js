@@ -293,8 +293,8 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 								r.results.push({
 									html:
 										`<span class='link-option' style="display: flex;flex-wrap: nowrap;flex-direction: row;align-items: center;">` +
-										`<div class='material-symbols-outlined' style='margin-right: 5px;font-size: 23px;'>add</div> ` +
-										__("Create a new {0}", [__(me.get_options())]) +
+										`<div class='material-symbols-outlined' style='margin-right: 5px;font-size: 23px;font-weight: 600;'>add</div> ` +
+										`<div style="font-weight: 600;">${__("Create a new {0}", [__(me.get_options())])}</div>` +
 										"</span>",
 									label: __("Create a new {0}", [__(me.get_options())]),
 									value: "create_new__link_option",
@@ -317,8 +317,8 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 								r.results.push({
 									html:
 										`<span class='link-option' style="display: flex;flex-wrap: nowrap;flex-direction: row;align-items: center;">` +
-										`<div class='material-symbols-outlined' style='margin-right: 5px;font-size: 23px;'>filter_alt</div> ` +
-										__("Advanced Search") +
+										`<div class='material-symbols-outlined' style='margin-right: 5px;font-size: 23px;font-weight: 600;'>filter_alt</div> ` +
+										`<div style="font-weight: 600;">${__("Advanced Search")}</div>` +
 										"</span>",
 									label: __("Advanced Search"),
 									value: "advanced_search__link_option",
