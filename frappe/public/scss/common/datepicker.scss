@@ -46,8 +46,8 @@
 
 		&.-range-from-,
 		&.-range-to- {
-			border: 1px solid fade(#0073e6, 30%);
-			background: fade(#0073e6, 10%);
+			border: 1px solid #0073e6;
+			background: #0073e6;
 		}
 
 		&.-selected-,
@@ -56,11 +56,11 @@
 		}
 
 		&.-in-range- {
-			background: fade(#0073e6, 5%);
+			background: #0073e6;
 		}
 
 		&.-in-range-.-focus- {
-			background: fade(#0073e6, 10%);
+			background: #0073e6;
 		}
 
 		&.-focus- {
@@ -68,7 +68,7 @@
 		}
 
 		&.-selected-.-focus- {
-			background: fade(#0073e6, 90%);
+			background: #0073e6c8;
 		}
 	}
 
