@@ -19,6 +19,9 @@
 	&--nav {
 		border-bottom: 1px solid var(--border-color);
 	}
+	&--nav-action path {
+		stroke: #565f6c;
+	}
 
 	&--time-current-hours,
 	&--time-current-minutes,
@@ -68,7 +71,7 @@
 		}
 
 		&.-selected-.-focus- {
-			background: #0073e6c8;
+			background: #0073e6;
 		}
 	}
 
