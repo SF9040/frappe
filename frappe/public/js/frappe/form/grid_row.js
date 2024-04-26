@@ -364,7 +364,7 @@ export default class GridRow {
 			// <a>${frappe.utils.icon("setting-gear", "sm", "", "filter: opacity(0.5)")}</a>
 			this.configure_columns_button = $(`
 				<div class="col grid-static-col d-flex justify-content-center" style="cursor: pointer;">
-					<span class="material-symbols-outlined">wrap_text</span>
+					<span class="material-symbols-outlined" style="font-weight: 600;">wrap_text</span>
 				</div>
 			`)
 				.appendTo(this.row)
