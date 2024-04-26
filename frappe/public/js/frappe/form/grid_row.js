@@ -334,13 +334,14 @@ export default class GridRow {
 			if (!this.open_form_button) {
 				this.open_form_button = $('<div class="col"></div>').appendTo(this.row);
 
+				
 				if (!this.configure_columns) {
 					this.open_form_button = $(`
 						<div class="btn-open-row">
-							<a>${frappe.utils.icon("edit", "xs")}</a>
+							<span class="material-symbols-outlined" style="font-size: 20px;font-weight: 600;">tune</span>
 							<div class="hidden-md edit-grid-row">${__("Edit", "", "Edit grid row")}</div>
 						</div>
-					`)
+					`) // <a>${frappe.utils.icon("edit", "xs")}</a>
 						.appendTo(this.open_form_button)
 						.on("click", function () {
 							me.toggle_view();
