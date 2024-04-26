@@ -426,7 +426,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 	reorder_listview_fields() {
 		let fields_order = [];
 		let fields = JSON.parse(this.list_view_settings.fields);
-		console.log("🚀 ~ file: list_view.js:429 ~ ListView ~ reorder_listview_fields ~ fields", fields)
+		// console.log("🚀 ~ file: list_view.js:429 ~ ListView ~ reorder_listview_fields ~ fields", fields)
 
 		//title and tags field is fixed
 		fields_order.push(this.columns[0]);
@@ -447,8 +447,8 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 				}
 			}
 		}
-		console.log("🚀 ~ file: list_view.js:449 ~ ListView ~ reorder_listview_fields ~ columns", this.columns)
-		console.log("🚀 ~ file: list_view.js:450 ~ ListView ~ reorder_listview_fields ~ fields_order:", fields_order)
+		// console.log("🚀 ~ file: list_view.js:449 ~ ListView ~ reorder_listview_fields ~ columns", this.columns)
+		// console.log("🚀 ~ file: list_view.js:450 ~ ListView ~ reorder_listview_fields ~ fields_order:", fields_order)
 		return fields_order;
 	}
 
@@ -620,7 +620,7 @@ frappe.views.ListView = class ListView extends frappe.views.BaseList {
 	}
 
 	get_header_html() {
-		console.log("🚀 ~ file: list_view.js:676 ~ ListView ~ get_header_html ~ this.columns", this.columns)
+		// console.log("🚀 ~ file: list_view.js:676 ~ ListView ~ get_header_html ~ this.columns", this.columns)
 		if (!this.columns) {
 			return;
 		}
