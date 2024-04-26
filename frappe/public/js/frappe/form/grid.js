@@ -73,7 +73,7 @@ export default class Grid {
 							<div class="rows"></div>
 							<div class="grid-empty text-center">
 								<div class="material-symbols-outlined" style="font-size: xxx-large;">contract_delete</div>
-								${__("No Data")}
+								<div>${__("No Data")}</div>
 							</div>
 						</div>
 					</div>
