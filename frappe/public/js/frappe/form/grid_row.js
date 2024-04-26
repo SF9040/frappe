@@ -361,9 +361,10 @@ export default class GridRow {
 		if (this.grid.df.in_place_edit && !this.frm) return;
 
 		if (this.configure_columns && this.frm) {
+			// <a>${frappe.utils.icon("setting-gear", "sm", "", "filter: opacity(0.5)")}</a>
 			this.configure_columns_button = $(`
 				<div class="col grid-static-col d-flex justify-content-center" style="cursor: pointer;">
-					<a>${frappe.utils.icon("setting-gear", "sm", "", "filter: opacity(0.5)")}</a>
+					<span class="material-symbols-outlined">tune</span>
 				</div>
 			`)
 				.appendTo(this.row)
