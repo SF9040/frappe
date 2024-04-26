@@ -16,6 +16,7 @@
 		</div>
 	</li>
 </ul>
+<ul class="list-unstyled sidebar-menu qr-code" data-qr-code-item="data-qr-code-item"></ul>
 {% if frm.meta.beta %}
 <div class="sidebar-menu">
 	<p><label class="indicator-pill yellow" title="{{ __("This feature is brand new and still experimental") }}">{{ __("Experimental") }}</label></p>
@@ -40,7 +41,8 @@
 </ul>
 <ul class="list-unstyled sidebar-menu form-assignments">
 	<li class="sidebar-label">
-		<svg class="icon icon-sm"><use href="#icon-assign"></use></svg>
+		<span class="material-symbols-outlined">recent_patient</span>
+		<!-- <svg class="icon icon-sm"><use href="#icon-assign"></use></svg> -->
 		{%= __("Assigned To") %}
 	</li>
 	<li class="flex flex-wrap">
@@ -52,7 +54,8 @@
 </ul>
 <ul class="list-unstyled sidebar-menu form-attachments">
 	<li class="sidebar-label attachments-label">
-		<svg class="icon icon-sm"><use href="#icon-attachment"></use></svg>
+		<span class="material-symbols-outlined">attach_file_add</span>
+		<!-- <svg class="icon icon-sm"><use href="#icon-attachment"></use></svg> -->
 		{%= __("Attachments") %}
 
 		<li class="explore-full-btn hidden">
@@ -105,7 +108,8 @@
 </ul>
 <ul class="list-unstyled sidebar-menu form-shared">
 	<li class="sidebar-label">
-		<svg class="icon icon-sm"><use href="#icon-share"></use></svg>
+		<span class="material-symbols-outlined">group_add</span>
+		<!-- <svg class="icon icon-sm"><use href="#icon-share"></use></svg> -->
 		{%= __("Shared With") %}
 	</li>
 	<li class="flex flex-wrap">
@@ -134,7 +138,8 @@
 </ul>
 <ul class="list-unstyled sidebar-menu form-tags">
 	<li class="sidebar-label tags-label">
-		<svg class="icon icon-sm"><use href="#icon-tag"></use></svg>
+		<span class="material-symbols-outlined">tag</span>
+		<!-- <svg class="icon icon-sm"><use href="#icon-tag"></use></svg> -->
 		{%= __("Tags") %}
 	</li>
 </ul>
