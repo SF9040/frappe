@@ -32,6 +32,7 @@
 
 	&--day-name {
 		color: var(--text-color);
+		font-weight: 500;
 	}
 
 	&--cell {
@@ -45,29 +46,29 @@
 
 		&.-range-from-,
 		&.-range-to- {
-			border: 1px solid fade(#0089ff, 30%);
-			background: fade(#0089ff, 10%);
+			border: 1px solid fade(#0073e6, 30%);
+			background: fade(#0073e6, 10%);
 		}
 
 		&.-selected-,
 		&.-current-.-selected- {
-			background: #0089ff;
+			background: #0073e6;
 		}
 
 		&.-in-range- {
-			background: fade(#0089ff, 5%);
+			background: fade(#0073e6, 5%);
 		}
 
 		&.-in-range-.-focus- {
-			background: fade(#0089ff, 10%);
+			background: fade(#0073e6, 10%);
 		}
 
 		&.-focus- {
-			background-color: var(--fg-hover-color);
+			background-color: #0073e6;
 		}
 
 		&.-selected-.-focus- {
-			background: fade(#0089ff, 90%);
+			background: fade(#0073e6, 90%);
 		}
 	}
 
@@ -77,7 +78,7 @@
 	}
 
 	&--time-row {
-		background-image: linear-gradient(to right, #0089ff, #0089ff);
+		background-image: linear-gradient(to right, #0073e6, #0073e6);
 		background-repeat: no-repeat;
 		background-size: 100% 1px;
 		background-position: left 50%;
