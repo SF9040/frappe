@@ -19,8 +19,13 @@
 	&--nav {
 		border-bottom: 1px solid var(--border-color);
 	}
+	
 	&--nav-action path {
 		stroke: #565f6c;
+	}
+
+	&--nav-title i {
+		color: #565f6c;
 	}
 
 	&--time-current-hours,
