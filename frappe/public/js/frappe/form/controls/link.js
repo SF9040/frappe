@@ -16,10 +16,10 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 			<input type="text" class="input-with-feedback form-control">
 			<span class="link-btn">
 				<a class="btn-open no-decoration" title="${__("Open Link")}">
-					${frappe.utils.icon("arrow-right", "xs")}
+					<span class="material-symbols-outlined">trending_flat</span>
 				</a>
 			</span>
-		</div>`).prependTo(this.input_area);
+		</div>`).prependTo(this.input_area); //${frappe.utils.icon("arrow-right", "xs")}
 		this.$input_area = $(this.input_area);
 		this.$input = this.$input_area.find("input");
 		this.$link = this.$input_area.find(".link-btn");
