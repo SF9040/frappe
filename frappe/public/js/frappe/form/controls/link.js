@@ -16,7 +16,7 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 			<input type="text" class="input-with-feedback form-control">
 			<span class="link-btn">
 				<a class="btn-open no-decoration" title="${__("Open Link")}">
-					<span class="material-symbols-outlined">trending_flat</span>
+					<span class="material-symbols-outlined" style="font-weight: 500;" >trending_flat</span>
 				</a>
 			</span>
 		</div>`).prependTo(this.input_area); //${frappe.utils.icon("arrow-right", "xs")}
@@ -40,14 +40,14 @@ frappe.ui.form.ControlLink = class ControlLink extends frappe.ui.form.ControlDat
 					// hide link arrow to doctype if none is set
 					me.$link.toggle(false);
 				}
-			}, 500);
+			}, 1500);
 		});
 		this.$input.on("blur", function () {
 			// if this disappears immediately, the user's click
 			// does not register, hence timeout
 			setTimeout(function () {
 				me.$link.toggle(false);
-			}, 500);
+			}, 1500);
 		});
 		this.$input.attr("data-target", this.df.options);
 		this.input = this.$input.get(0);
