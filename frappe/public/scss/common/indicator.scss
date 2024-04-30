@@ -4,6 +4,7 @@
 .indicator-pill-round {
 	display: inline-flex;
 	align-items: center;
+	font-weight: 600;
 }
 
 .indicator::before {
@@ -19,8 +20,7 @@
 	padding: 3px 10px;
 	font-size: var(--text-sm);
 	border-radius: var(--border-radius);
-	font-weight: 600;
-	text-transform: uppercase;
+	font-weight: 500;
 	height: 24px;
 }
 
