@@ -31,12 +31,34 @@ from pybaht import bahttext
 import base64
 import segno
 from io import BytesIO
+import barcode
+from barcode.writer import SVGWriter
+import base64
+from io import BytesIO
+
 class ServerScriptNotEnabled(frappe.PermissionError):
 	pass
 
 
 ARGUMENT_NOT_SET = object()
 
+
+def barcode_gen(data, barcode_type='code128'):
+    # Generate the barcode
+    BARCODE = barcode.get_barcode_class(barcode_type)
+    barcode_svg = BARCODE(data, writer=SVGWriter())
+
+    # Save barcode to a BytesIO buffer as SVG
+    buffer = BytesIO()
+    barcode_svg.write(buffer)
+
+    # Get SVG data from buffer
+    svg_data = buffer.getvalue().decode('utf-8')
+
+    # Convert SVG data to a base64 data URL
+    data_url = 'data:image/svg+xml;base64,' + base64.b64encode(svg_data.encode('utf-8')).decode('utf-8')
+
+    return data_url
 
 def qr_code_gen(data):
     # Generate the QR code as SVG
@@ -264,7 +286,8 @@ def get_safe_globals():
 		is_job_queued=is_job_queued,
 		get_visible_columns=get_visible_columns,
 		bahttext=bahttext,
-		qr_code_gen=qr_code_gen
+		qr_code_gen=qr_code_gen,
+		barcode_gen=barcode_gen
 	)
 
 	add_module_properties(
