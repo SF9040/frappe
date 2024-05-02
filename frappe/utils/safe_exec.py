@@ -48,9 +48,15 @@ def barcode_gen(data, barcode_type='code128'):
     BARCODE = barcode.get_barcode_class(barcode_type)
     barcode_svg = BARCODE(data, writer=SVGWriter())
 
+	# Customize the writer to not include text
+    options = {
+        'text': '',  # This disables text rendering below the barcode
+    }
+
     # Save barcode to a BytesIO buffer as SVG
     buffer = BytesIO()
-    barcode_svg.write(buffer)
+	
+    barcode_svg.write(buffer, options=options)
 
     # Get SVG data from buffer
     svg_data = buffer.getvalue().decode('utf-8')
