@@ -38,7 +38,7 @@ class ServerScriptNotEnabled(frappe.PermissionError):
 ARGUMENT_NOT_SET = object()
 
 
-def generate_qr_code_svg_data_url(data):
+def qr_code_gen(data):
     # Generate the QR code as SVG
     qr = segno.make(data)
     buffer = BytesIO()
@@ -264,7 +264,7 @@ def get_safe_globals():
 		is_job_queued=is_job_queued,
 		get_visible_columns=get_visible_columns,
 		bahttext=bahttext,
-		generate_qr_code_svg_data_url=generate_qr_code_svg_data_url
+		qr_code_gen=qr_code_gen
 	)
 
 	add_module_properties(
