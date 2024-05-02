@@ -36,7 +36,7 @@ from barcode.writer import SVGWriter
 import base64
 from io import BytesIO
 
-barcode.default_writer_options['write_text'] = False
+barcode.base.Barcode.default_writer_options['write_text'] = False
 
 class ServerScriptNotEnabled(frappe.PermissionError):
 	pass
