@@ -36,6 +36,8 @@ from barcode.writer import SVGWriter
 import base64
 from io import BytesIO
 
+barcode.default_writer_options['write_text'] = False
+
 class ServerScriptNotEnabled(frappe.PermissionError):
 	pass
 
@@ -48,15 +50,9 @@ def barcode_gen(data, barcode_type='code128'):
     BARCODE = barcode.get_barcode_class(barcode_type)
     barcode_svg = BARCODE(data, writer=SVGWriter())
 
-	# Customize the writer to not include text
-    options = {
-        'text': '',  # This disables text rendering below the barcode
-    }
-
     # Save barcode to a BytesIO buffer as SVG
     buffer = BytesIO()
-	
-    barcode_svg.write(buffer, options=options)
+    barcode_svg.write(buffer)
 
     # Get SVG data from buffer
     svg_data = buffer.getvalue().decode('utf-8')
