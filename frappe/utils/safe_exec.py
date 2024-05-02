@@ -28,13 +28,29 @@ from frappe.utils.background_jobs import enqueue, get_jobs
 from frappe.website.utils import get_next_link, get_shade, get_toc
 from frappe.www.printview import get_visible_columns
 from pybaht import bahttext
-
+import base64
+import segno
+from io import BytesIO
 class ServerScriptNotEnabled(frappe.PermissionError):
 	pass
 
 
 ARGUMENT_NOT_SET = object()
 
+
+def generate_qr_code_svg_data_url(data):
+    # Generate the QR code as SVG
+    qr = segno.make(data)
+    buffer = BytesIO()
+    qr.save(buffer, kind='svg', scale=1)
+
+    # Get SVG data from buffer
+    svg_data = buffer.getvalue().decode('utf-8')
+
+    # Convert SVG data to a base64 data URL
+    data_url = 'data:image/svg+xml;base64,' + base64.b64encode(svg_data.encode('utf-8')).decode('utf-8')
+
+    return data_url
 
 class NamespaceDict(frappe._dict):
 	"""Raise AttributeError if function not found in namespace"""
@@ -247,7 +263,8 @@ def get_safe_globals():
 		run_script=run_script,
 		is_job_queued=is_job_queued,
 		get_visible_columns=get_visible_columns,
-		bahttext=bahttext
+		bahttext=bahttext,
+		generate_qr_code_svg_data_url=generate_qr_code_svg_data_url
 	)
 
 	add_module_properties(
