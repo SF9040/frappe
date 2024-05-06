@@ -47,12 +47,12 @@ def get_context(context):
 	include_css = hooks.get("app_include_css", []) + frappe.conf.get("app_include_css", [])
 
 	route_app_path = frappe.local.request.path
-	if route_app_path == '/app/sales-invoice': 
-		route_tint_color = '#fa7474c4'
-	elif route_app_path == '/app/sales-order':
-		route_tint_color = '#986803c4'
-	elif route_app_path == '/app/delivery-note':
-		route_tint_color = '#2f89f8c4'
+	if route_app_path.startswith('/app/sales-invoice'): 
+		route_tint_color = '#fa7474'
+	elif route_app_path.startswith('/app/sales-order'):
+		route_tint_color = '#986803'
+	elif route_app_path.startswith('/app/delivery-note'):
+		route_tint_color = '#0073e6'
 	else: route_tint_color = '#ffffff'
 	
 
