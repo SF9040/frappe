@@ -601,3 +601,25 @@ export default {
 	},
 };
 </script>
+<style>
+.file-upload-area {
+	min-height: 16rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	border: 1px dashed rgba(28, 52, 84, 0.26);
+	color: rgba(28, 52, 84, 0.76);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+.btn-file-upload {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	font-size: var(--text-xs);
+	border: 1px dashed rgba(28, 52, 84, 0.26);
+    color: rgba(28, 52, 84, 0.76);
+}
+</style>
