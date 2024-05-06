@@ -46,6 +46,16 @@ def get_context(context):
 	include_js = hooks.get("app_include_js", []) + frappe.conf.get("app_include_js", [])
 	include_css = hooks.get("app_include_css", []) + frappe.conf.get("app_include_css", [])
 
+	route_app_path = frappe.local.request.path
+	if route_app_path == '/app/sales-invoice': 
+		route_tint_color = '#fa7474c4'
+	elif route_app_path == '/app/sales-order':
+		route_tint_color = '#986803c4'
+	elif route_app_path == '/app/delivery-note':
+		route_tint_color = '#2f89f8c4'
+	else: route_tint_color = '#ffffff'
+	
+
 	context.update(
 		{
 			"no_cache": 1,
@@ -61,6 +71,8 @@ def get_context(context):
 			"google_analytics_id": frappe.conf.get("google_analytics_id"),
 			"google_analytics_anonymize_ip": frappe.conf.get("google_analytics_anonymize_ip"),
 			"mixpanel_id": frappe.conf.get("mixpanel_id"),
+			"route_app_path": route_app_path,
+			"route_tint_color": route_tint_color
 		}
 	)
 
