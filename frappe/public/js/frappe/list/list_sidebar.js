@@ -39,7 +39,7 @@ frappe.views.ListSidebar = class ListSidebar {
 			});
 		}
 
-		this.add_insights_banner();
+		// this.add_insights_banner();
 	}
 
 	setup_views() {
