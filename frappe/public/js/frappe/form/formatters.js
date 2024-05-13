@@ -372,7 +372,7 @@ frappe.form.formatters = {
 	Icon: (value) => {
 		return value
 			? `<div>
-			<div class="selected-icon">${frappe.utils.icon(value, "md")}</div>
+			<div class="selected-icon"><span class="material-symbols-outlined">${value}</span></div>
 			<span class="icon-value">${value}</span>
 		</div>`
 			: "";

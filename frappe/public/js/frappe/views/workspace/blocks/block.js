@@ -140,7 +140,7 @@ export default class Block {
 
 	add_new_block_button() {
 		let $new_button = $(`
-			<div class="new-block-button">${frappe.utils.icon("add-round", "lg")}</div>
+			<div class="new-block-button"><div class="material-symbols-outlined">tab_new_right</div></div>
 		`);
 
 		$new_button.appendTo(this.wrapper);
