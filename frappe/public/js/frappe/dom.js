@@ -328,7 +328,7 @@ frappe.get_modal = function (title, content) {
 							${frappe.utils.icon("collapse")}
 						</button>
 						<button class="btn btn-modal-close btn-link" data-dismiss="modal">
-							${frappe.utils.icon("close-alt", "sm", "close-alt")}
+							<span class="material-symbols-outlined">close</span>
 						</button>
 					</div>
 				</div>
