@@ -82,6 +82,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 			title: title,
 			fields: this.fields,
 			size: this.size,
+			cssClass: "modal-lg", 
 			primary_action_label: this.primary_action_label || __("Get Items"),
 			secondary_action_label: __("Make {0}", [__(this.doctype)]),
 			primary_action: () => {
@@ -427,7 +428,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 	}
 
 	get_datatable_columns() {
-		let custom_fields = ['customer_name', 'shipping_address_name', 'billing_address_name', 'branch']; // Replace with your actual fieldnames
+		let custom_fields = ['customer_name', 'shipping_address_name']; // Replace with your actual fieldnames
 		
 		if (this.get_query && this.get_query().query && this.columns) return this.columns;
 
