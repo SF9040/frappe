@@ -427,12 +427,18 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 	}
 
 	get_datatable_columns() {
+		let custom_fields = ['customer_name', 'shipping_address_name', 'billing_address_name', 'branch']; // Replace with your actual fieldnames
+		
 		if (this.get_query && this.get_query().query && this.columns) return this.columns;
 
+		const existing_custom_fields = custom_fields.filter(field => 
+			frappe.meta.has_field(this.doctype, field)
+		);
+		
 		if (Array.isArray(this.setters))
-			return ["name", ...this.setters.map((df) => df.fieldname)];
+			return ["name", ...this.setters.map((df) => df.fieldname), ...existing_custom_fields];
 
-		return ["name", ...Object.keys(this.setters)];
+		return ["name", ...Object.keys(this.setters), ...existing_custom_fields];
 	}
 
 	make_list_row(result = {}) {
