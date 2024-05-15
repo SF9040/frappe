@@ -555,6 +555,12 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 	get_args_for_search() {
 		let [filters, filter_fields] = this.get_filters_from_setters();
 
+		let custom_fields = ['customer_name', 'shipping_address_name', 'billing_address_name', 'branch']; // Replace with your actual fieldnames
+		const existing_custom_fields = custom_fields.filter(field => 
+			frappe.meta.has_field(this.doctype, field)
+		);
+
+
 		let custom_filters = this.get_custom_filters();
 		Object.assign(filters, custom_filters);
 
@@ -562,7 +568,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 			doctype: this.doctype,
 			txt: this.dialog.fields_dict["search_term"].get_value(),
 			filters: filters,
-			filter_fields: filter_fields,
+			filter_fields: [filter_fields, ...existing_custom_fields],
 			page_length: this.page_length + 5,
 			query: this.get_query ? this.get_query().query : "",
 			as_dict: 1,
