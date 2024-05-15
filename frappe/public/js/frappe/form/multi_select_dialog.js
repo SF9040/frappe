@@ -568,7 +568,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 			doctype: this.doctype,
 			txt: this.dialog.fields_dict["search_term"].get_value(),
 			filters: filters,
-			filter_fields: [filter_fields, ...existing_custom_fields],
+			filter_fields: [...filter_fields, ...existing_custom_fields],
 			page_length: this.page_length + 5,
 			query: this.get_query ? this.get_query().query : "",
 			as_dict: 1,
