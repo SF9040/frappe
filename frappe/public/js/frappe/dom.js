@@ -336,7 +336,7 @@ frappe.get_modal = function (title, content) {
 				<div class="modal-footer hide">
 					<div class="custom-actions"></div>
 					<div class="standard-actions">
-						<button type="button" class="btn btn-secondary btn-sm hide btn-modal-secondary">
+						<button type="button" class="btn btn-default btn-sm hide btn-modal-secondary">
 						</button>
 						<button type="button" class="btn btn-primary btn-sm hide btn-modal-primary">
 							${__("Confirm")}

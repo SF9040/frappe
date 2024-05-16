@@ -833,17 +833,13 @@ class FilterArea {
 		$(`<div class="filter-selector">
 			<div class="btn-group">
 				<button class="btn btn-default btn-sm filter-button">
-					<span class="filter-icon">
-						${frappe.utils.icon("filter")}
-					</span>
+					<div class="material-symbols-outlined" style="font-size: 20px;font-weight: 600;display: flex;color: #fb3747 !important;">filter_alt</div>
 					<span class="button-label hidden-xs">
 					${__("Filter")}
 					<span>
 				</button>
 				<button class="btn btn-default btn-sm filter-x-button" title="${__("Clear all filters")}">
-					<span class="filter-icon">
-						${frappe.utils.icon("filter-x")}
-					</span>
+					<div class="material-symbols-outlined" style="font-size: 20px;font-weight: 600;display: flex;color: #fb3747 !important;">filter_alt_off</div>
 				</button>
 			</div>
 		</div>`).appendTo(this.$filter_list_wrapper);
