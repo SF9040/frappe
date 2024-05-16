@@ -832,11 +832,11 @@ class FilterArea {
 	make_filter_list() {
 		$(`<div class="filter-selector">
 			<div class="btn-group">
-				<button class="btn btn-default btn-sm filter-button">
-					<div class="material-symbols-outlined" style="font-size: 20px;font-weight: 600;display: flex;color: #fb3747 !important;">filter_alt</div>
-					<span class="button-label hidden-xs">
+				<button class="btn btn-default btn-sm filter-button" style="display: flex;align-items: center;justify-content: center;">
+					<div class="material-symbols-outlined" style="font-size: 20px;font-weight: 600;display: flex;">filter_alt</div>
+					<div class="button-label hidden-xs">
 					${__("Filter")}
-					<span>
+					<div>
 				</button>
 				<button class="btn btn-default btn-sm filter-x-button" title="${__("Clear all filters")}">
 					<div class="material-symbols-outlined" style="font-size: 20px;font-weight: 600;display: flex;color: #fb3747 !important;">filter_alt_off</div>
