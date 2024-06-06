@@ -4,115 +4,115 @@ $input-height: 28px !default;
 [data-theme="light"] {
 	--brand-color: #0070f3;
 
-	--pink-900: #5b1e34;
-	--pink-800: #702440;
-	--pink-700: #97264f;
-	--pink-600: #d2326d;
-	--pink-500: #f2508b;
-	--pink-400: #f46b9e;
-	--pink-300: #f584ae;
-	--pink-200: #fab9d1;
-	--pink-100: #fcdce8;
-	--pink-50: #feedf3;
+    --pink-900: #831843; /* Closest to Tailwind's pink-900 */
+    --pink-800: #9D174D; /* Closest to Tailwind's pink-800 */
+    --pink-700: #BE185D; /* Closest to Tailwind's pink-700 */
+    --pink-600: #DB2777; /* Closest to Tailwind's pink-600 */
+    --pink-500: #EC4899; /* Closest to Tailwind's pink-500 */
+    --pink-400: #F472B6; /* Closest to Tailwind's pink-400 */
+    --pink-300: #F9A8D4; /* Closest to Tailwind's pink-300 */
+    --pink-200: #FBCFE8; /* Closest to Tailwind's pink-200 */
+    --pink-100: #FCE7F3; /* Closest to Tailwind's pink-100 */
+    --pink-50: #FDF2F8; /* Closest to Tailwind's pink-50 */
 
-	--blue-900: #1a4469;
-	--blue-800: #154875;
-	--blue-700: #1366ae;
-	--blue-600: #1673c5;
-	--blue-500: #2490ef;
-	--blue-400: #50a6f2;
-	--blue-300: #7cbcf5;
-	--blue-200: #a7d3f9;
-	--blue-100: #d3e9fc;
-	--blue-50: #f0f8fe;
+    --blue-900: #1E3A8A; /* Closest to Tailwind's blue-900 */
+    --blue-800: #1E40AF; /* Closest to Tailwind's blue-800 */
+    --blue-700: #1D4ED8; /* Closest to Tailwind's blue-700 */
+    --blue-600: #2563EB; /* Closest to Tailwind's blue-600 */
+    --blue-500: #3B82F6; /* Closest to Tailwind's blue-500 */
+    --blue-400: #60A5FA; /* Closest to Tailwind's blue-400 */
+    --blue-300: #93C5FD; /* Closest to Tailwind's blue-300 */
+    --blue-200: #BFDBFE; /* Closest to Tailwind's blue-200 */
+    --blue-100: #DBEAFE; /* Closest to Tailwind's blue-100 */
+    --blue-50: #EFF6FF; /* Closest to Tailwind's blue-50 */
 
-	--cyan-900: #006464;
-	--cyan-800: #007272;
-	--cyan-700: #008b8b;
-	--cyan-600: #02c5c5;
-	--cyan-500: #00ffff;
-	--cyan-400: #2ef8f8;
-	--cyan-300: #6efcfc;
-	--cyan-200: #a0f8f8;
-	--cyan-100: #c7fcfc;
-	--cyan-50: #dafafa;
+    --cyan-900: #064E3B; /* Closest to Tailwind's emerald-900 */
+    --cyan-800: #065F46; /* Closest to Tailwind's emerald-800 */
+    --cyan-700: #047857; /* Closest to Tailwind's emerald-700 */
+    --cyan-600: #059669; /* Closest to Tailwind's emerald-600 */
+    --cyan-500: #10B981; /* Closest to Tailwind's emerald-500 */
+    --cyan-400: #34D399; /* Closest to Tailwind's emerald-400 */
+    --cyan-300: #6EE7B7; /* Closest to Tailwind's emerald-300 */
+    --cyan-200: #A7F3D0; /* Closest to Tailwind's emerald-200 */
+    --cyan-100: #D1FAE5; /* Closest to Tailwind's emerald-100 */
+    --cyan-50: #ECFDF5; /* Closest to Tailwind's emerald-50 */
 
-	--green-900: #2d401d;
-	--green-800: #44622a;
-	--green-700: #518b21;
-	--green-600: #68ab30;
-	--green-500: #8ccf54;
-	--green-400: #a5d97a;
-	--green-300: #bce39b;
-	--green-200: #d2ecbd;
-	--green-100: #e9f6de;
-	--green-50: #f4faee;
+    --green-900: #064E3B; /* Repeated for consistency */
+    --green-800: #065F46; /* Repeated for consistency */
+    --green-700: #047857; /* Repeated for consistency */
+    --green-600: #059669; /* Repeated for consistency */
+    --green-500: #10B981; /* Repeated for consistency */
+    --green-400: #34D399; /* Repeated for consistency */
+    --green-300: #6EE7B7; /* Repeated for consistency */
+    --green-200: #A7F3D0; /* Repeated for consistency */
+    --green-100: #D1FAE5; /* Repeated for consistency */
+    --green-50: #ECFDF5; /* Repeated for consistency */
 
-	--dark-green-900: #1f3e2b;
-	--dark-green-800: #29593b;
-	--dark-green-700: #286840;
-	--dark-green-600: #2e844e;
-	--dark-green-500: #2f9d58;
-	--dark-green-400: #59b179;
-	--dark-green-300: #82c49b;
-	--dark-green-200: #acd8bc;
-	--dark-green-100: #dfeee5;
-	--dark-green-50: #eaf5ee;
+    --dark-green-900: #064E3B; /* Repeated for consistency */
+    --dark-green-800: #065F46; /* Repeated for consistency */
+    --dark-green-700: #047857; /* Repeated for consistency */
+    --dark-green-600: #059669; /* Repeated for consistency */
+    --dark-green-500: #10B981; /* Repeated for consistency */
+    --dark-green-400: #34D399; /* Repeated for consistency */
+    --dark-green-300: #6EE7B7; /* Repeated for consistency */
+    --dark-green-200: #A7F3D0; /* Repeated for consistency */
+    --dark-green-100: #D1FAE5; /* Repeated for consistency */
+    --dark-green-50: #ECFDF5; /* Repeated for consistency */
 
-	--gray-900: #1f272e;
-	--gray-800: #333c44;
-	--gray-700: #505a62;
-	--gray-600: #687178;
-	--gray-500: #98a1a9;
-	--gray-400: #c0c6cc;
-	--gray-300: #dce0e3;
-	--gray-200: #ebeef0;
-	--gray-100: #f4f5f6;
-	--gray-50: #f9fafa;
+    --gray-900: #111827; /* Closest to Tailwind's coolGray-900 */
+    --gray-800: #1F2937; /* Closest to Tailwind's coolGray-800 */
+    --gray-700: #374151; /* Closest to Tailwind's coolGray-700 */
+    --gray-600: #4B5563; /* Closest to Tailwind's coolGray-600 */
+    --gray-500: #6B7280; /* Closest to Tailwind's coolGray-500 */
+    --gray-400: #9CA3AF; /* Closest to Tailwind's coolGray-400 */
+    --gray-300: #D1D5DB; /* Closest to Tailwind's coolGray-300 */
+    --gray-200: #E5E7EB; /* Closest to Tailwind's coolGray-200 */
+    --gray-100: #F3F4F6; /* Closest to Tailwind's coolGray-100 */
+    --gray-50: #F9FAFB; /* Closest to Tailwind's coolGray-50 */
 
-	--red-900: #631d1d;
-	--red-800: #802121;
-	--red-700: #9b2c2c;
-	--red-600: #c53030;
-	--red-500: #e24c4c;
-	--red-400: #ec645e;
-	--red-300: #fca4a4;
-	--red-200: #fcc8c8;
-	--red-100: #ffecec;
-	--red-50: #fff5f5;
+    --red-900: #7F1D1D; /* Closest to Tailwind's red-900 */
+    --red-800: #991B1B; /* Closest to Tailwind's red-800 */
+    --red-700: #B91C1C; /* Closest to Tailwind's red-700 */
+    --red-600: #DC2626; /* Closest to Tailwind's red-600 */
+    --red-500: #EF4444; /* Closest to Tailwind's red-500 */
+    --red-400: #F87171; /* Closest to Tailwind's red-400 */
+    --red-300: #FCA5A5; /* Closest to Tailwind's red-300 */
+    --red-200: #FECACA; /* Closest to Tailwind's red-200 */
+    --red-100: #FEE2E2; /* Closest to Tailwind's red-100 */
+    --red-50: #FEF2F2; /* Closest to Tailwind's red-50 */
 
-	--yellow-900: #5f370e;
-	--yellow-800: #744210;
-	--yellow-700: #975a16;
-	--yellow-600: #b7791f;
-	--yellow-500: #d69e2e;
-	--yellow-400: #ecb64b;
-	--yellow-300: #f6c35e;
-	--yellow-200: #fad489;
-	--yellow-100: #fee9bf;
-	--yellow-50: #fef4e2;
+    --yellow-900: #78350F; /* Closest to Tailwind's amber-900 */
+    --yellow-800: #92400E; /* Closest to Tailwind's amber-800 */
+    --yellow-700: #B45309; /* Closest to Tailwind's amber-700 */
+    --yellow-600: #D97706; /* Closest to Tailwind's amber-600 */
+    --yellow-500: #F59E0B; /* Closest to Tailwind's amber-500 */
+    --yellow-400: #FBBF24; /* Closest to Tailwind's amber-400 */
+    --yellow-300: #FCD34D; /* Closest to Tailwind's amber-300 */
+    --yellow-200: #FDE68A; /* Closest to Tailwind's amber-200 */
+    --yellow-100: #FEF3C7; /* Closest to Tailwind's amber-100 */
+    --yellow-50: #FFFBEB; /* Closest to Tailwind's amber-50 */
 
-	--orange-900: #653019;
-	--orange-800: #7b3a1e;
-	--orange-700: #9c4621;
-	--orange-600: #cb5a2a;
-	--orange-500: #f8814f;
-	--orange-400: #f9966c;
-	--orange-300: #fdae8c;
-	--orange-200: #fecdb8;
-	--orange-100: #ffeae1;
-	--orange-50: #fff5f0;
+	--orange-900: #78350F; /* Closest to Tailwind's amber-900 */
+    --orange-800: #92400E; /* Closest to Tailwind's amber-800 */
+    --orange-700: #B45309; /* Closest to Tailwind's amber-700 */
+    --orange-600: #D97706; /* Closest to Tailwind's amber-600 */
+    --orange-500: #F59E0B; /* Closest to Tailwind's amber-500 */
+    --orange-400: #FBBF24; /* Closest to Tailwind's amber-400 */
+    --orange-300: #FCD34D; /* Closest to Tailwind's amber-300 */
+    --orange-200: #FDE68A; /* Closest to Tailwind's amber-200 */
+    --orange-100: #FEF3C7; /* Closest to Tailwind's amber-100 */
+    --orange-50: #FFFBEB; /* Closest to Tailwind's amber-50 */
 
-	--purple-900: #343360;
-	--purple-800: #45438f;
-	--purple-700: #4946bf;
-	--purple-600: #6461d6;
-	--purple-500: #8684ff;
-	--purple-400: #9897f7;
-	--purple-300: #b9b8fa;
-	--purple-200: #dad9f7;
-	--purple-100: #eaeafb;
-	--purple-50: #f2f2fd;
+    --purple-900: #4C1D95; /* Closest to Tailwind's violet-900 */
+    --purple-800: #5B21B6; /* Closest to Tailwind's violet-800 */
+    --purple-700: #6D28D9; /* Closest to Tailwind's violet-700 */
+    --purple-600: #7C3AED; /* Closest to Tailwind's violet-600 */
+    --purple-500: #8B5CF6; /* Closest to Tailwind's violet-500 */
+    --purple-400: #A78BFA; /* Closest to Tailwind's violet-400 */
+    --purple-300: #C4B5FD; /* Closest to Tailwind's violet-300 */
+    --purple-200: #DDD6FE; /* Closest to Tailwind's violet-200 */
+    --purple-100: #EDE9FE; /* Closest to Tailwind's violet-100 */
+    --purple-50: #F5F3FF; /* Closest to Tailwind's violet-50 */
 
 	--padding-xs: 5px;
 	--padding-sm: 10px;
