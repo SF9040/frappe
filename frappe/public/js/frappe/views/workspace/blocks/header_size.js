@@ -37,7 +37,7 @@ export default class HeaderSize {
 	}
 
 	checkState(selection) {
-		let termWrapper = this.api.selection.findParentTag("SPAN");
+		let termWrapper = this.api.selection.findParentTag("div");
 
 		for (const h of ["h1", "h2", "h3", "h4", "h5", "h6"]) {
 			if (termWrapper && termWrapper.classList.contains(h)) {
@@ -55,21 +55,21 @@ export default class HeaderSize {
 	change_size(range, size) {
 		if (!range) return;
 
-		let span = document.createElement("SPAN");
+		let div = document.createElement("div");
 
-		span.classList.add(`h${size}`);
-		span.innerText = range.toString();
+		div.classList.add(`h${size}`);
+		div.innerText = range.toString();
 
-		this.remove_parent_tag(range, range.commonAncestorContainer, span);
+		this.remove_parent_tag(range, range.commonAncestorContainer, div);
 
 		range.extractContents();
-		range.insertNode(span);
+		range.insertNode(div);
 		this.api.inlineToolbar.close();
 	}
 
-	remove_parent_tag(range, parent_node, span) {
+	remove_parent_tag(range, parent_node, div) {
 		let diff = range.startContainer.data;
-		let selected_text = span.innerText;
+		let selected_text = div.innerText;
 		let parent_tag = parent_node.parentElement;
 
 		if (diff !== selected_text) {
@@ -81,7 +81,7 @@ export default class HeaderSize {
 				!parent_tag.classList.contains("ce-header") &&
 				!parent_tag.classList.contains("ce-paragraph")
 			) {
-				this.remove_parent_tag(range, parent_node.parentElement, span);
+				this.remove_parent_tag(range, parent_node.parentElement, div);
 				parent_tag.remove();
 			}
 		}

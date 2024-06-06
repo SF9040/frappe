@@ -85,7 +85,7 @@ export default class Header extends Block {
 				b: true,
 				i: true,
 				a: true,
-				span: true,
+				div: true,
 			},
 		};
 	}
@@ -108,7 +108,7 @@ export default class Header extends Block {
 			const contains_html_tag = /<[a-z][\s\S]*>/i.test(text);
 			this._element.innerHTML = contains_html_tag
 				? text
-				: `<span class="h${this._settings.default_size}">${text}</span>`;
+				: `<div class="h${this._settings.default_size}">${text}</div>`;
 		}
 
 		if (!this.readOnly && this.wrapper) {
@@ -120,7 +120,7 @@ export default class Header extends Block {
 		const tag = document.createElement("DIV");
 
 		let text = this._data.text || "&nbsp";
-		tag.innerHTML = `<span class="h${this._settings.default_size}"><b>${text}</b></span>`;
+		tag.innerHTML = `<div class="h${this._settings.default_size}">${text}</div>`;
 
 		tag.classList.add("ce-header");
 
