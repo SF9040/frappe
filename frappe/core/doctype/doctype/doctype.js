@@ -50,7 +50,7 @@ frappe.ui.form.on("DocType", {
 			msg += __("If you just want to customize for your site, use {0} instead.", [
 				customize_form_link,
 			]);
-			frm.dashboard.add_comment(msg, "red");
+			frm.dashboard.add_comment(msg, "orange");
 		}
 
 		if (frm.is_new()) {
