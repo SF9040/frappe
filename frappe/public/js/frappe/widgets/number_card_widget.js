@@ -22,32 +22,17 @@ export default class NumberCardWidget extends Widget {
 		this.set_body();
 	}
 
-	hexToRgbA(hex, alpha) {
-		// Remove the '#' character if present
-		hex = hex.replace(/^#/, '');
-	
-		// Parse the r, g, b values
-		let r = parseInt(hex.substring(0, 2), 16);
-		let g = parseInt(hex.substring(2, 4), 16);
-		let b = parseInt(hex.substring(4, 6), 16);
-	
-		return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-	}
-
 	set_body() {
 
 		frappe.model.with_doc("Number Card", this.number_card_name || this.name).then((card) => {
 			if (!card) {
 				// this.widget.attr("style", `background-image: url('data:image/svg+xml,<svg width="671" height="657" viewBox="0 0 671 657" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25" filter="url(%23filter0_f_11_79)"><ellipse cx="335.5" cy="328.5" rx="185.5" ry="178.5" fill="url(%23paint0_linear_11_79)"/></g><defs><filter id="filter0_f_11_79" x="0" y="0" width="671" height="657" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_11_79"/></filter><linearGradient id="paint0_linear_11_79" x1="335.5" y1="150" x2="335.5" y2="507" gradientUnits="userSpaceOnUse"><stop stop-color="${encodeURIComponent('#0066cc')}"/><stop offset="1" stop-color="${encodeURIComponent('#0066cc')}"/></linearGradient></defs></svg>');`);
-				// this.widget.prepend('<div class="widget-gradient" style="position: relative;"><div class="inner-gradient-spatial"></div></div>');
-				this.widget.attr(`style`,`background-size: calc(100% + 20px) auto; background: linear-gradient(to right, #fff 0, transparent 100px) left 0px top, linear-gradient(to left, #fff 0, transparent 100px) right 0px top, linear-gradient(to top, ${card && card.color ? this.hexToRgbA(card.color, '0.08') : this.hexToRgbA('#0066cc', '0.08')} 0px, #fff 60px) left -10px top !important;`);
-				
+				this.widget.prepend('<div class="widget-gradient" style="position: relative;"><div class="inner-gradient-spatial"></div></div>');
 		
 			} else {
 				// console.log("🚀 ~ file: number_card_widget.js:62 ~ NumberCardWidget ~ .then ~ card:", card)
 				// this.widget.attr("style", `background-image: url('data:image/svg+xml,<svg width="671" height="657" viewBox="0 0 671 657" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.25" filter="url(%23filter0_f_11_79)"><ellipse cx="335.5" cy="328.5" rx="185.5" ry="178.5" fill="url(%23paint0_linear_11_79)"/></g><defs><filter id="filter0_f_11_79" x="0" y="0" width="671" height="657" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="75" result="effect1_foregroundBlur_11_79"/></filter><linearGradient id="paint0_linear_11_79" x1="335.5" y1="150" x2="335.5" y2="507" gradientUnits="userSpaceOnUse"><stop stop-color="${encodeURIComponent(card && card.color ? card.color : '#0066cc')}"/><stop offset="1" stop-color="${encodeURIComponent(card && card.color ? card.color : '#0066cc')}"/></linearGradient></defs></svg>');`);
-				// this.widget.prepend(`<div class="widget-gradient" style="position: relative;"><div class="inner-gradient-spatial" style="background-image: conic-gradient(from 180deg at 50% 50%, ${card && card.color ? card.color : '#0066cc'}, ${card && card.color ? card.color : '#0066cc'}, rgba(191, 219, 254, 0)) !important"></div></div>`);
-				this.widget.attr(`style`,`background-size: calc(100% + 20px) auto; background: linear-gradient(to right, #fff 0, transparent 100px) left 0px top, linear-gradient(to left, #fff 0, transparent 100px) right 0px top, linear-gradient(to top, ${card && card.color ? this.hexToRgbA(card.color, '0.08') : this.hexToRgbA('#0066cc', '0.08')} 0px, #fff 60px) left -10px top !important;`);
+				this.widget.prepend(`<div class="widget-gradient" style="position: relative;"><div class="inner-gradient-spatial" style="background-image: conic-gradient(from 180deg at 50% 50%, ${card && card.color ? card.color : '#0066cc'}, ${card && card.color ? card.color : '#0066cc'}, rgba(191, 219, 254, 0)) !important"></div></div>`);
 		
 			}
 		});
