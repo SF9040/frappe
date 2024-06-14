@@ -104,12 +104,12 @@ body[data-route^="Module"] .main-menu {
 	}
 
 	.sidebar-image-section {
-		width: min(100%, 170px);
+		// width: min(100%, 170px);
 		cursor: pointer;
 
 		.sidebar-image {
 			height: auto;
-			max-height: 170px;
+			// max-height: 170px;
 			object-fit: cover;
 			border-radius: var(--border-radius-lg);
 		}
@@ -159,7 +159,9 @@ body[data-route^="Module"] .main-menu {
 
 .layout-side-section {
 	font-size: var(--text-md);
-	padding-right: 30px;
+	// padding-right: 30px;
+	padding-right: 0;
+    padding-left: 0;
 
 	&.hide-sidebar {
 		display: none;
