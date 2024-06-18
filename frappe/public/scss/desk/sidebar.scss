@@ -160,8 +160,8 @@ body[data-route^="Module"] .main-menu {
 .layout-side-section {
 	font-size: var(--text-md);
 	// padding-right: 30px;
-	padding-right: 0;
-    padding-left: 0;
+	// padding-right: 0;
+    // padding-left: 0;
 
 	&.hide-sidebar {
 		display: none;
