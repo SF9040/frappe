@@ -314,67 +314,64 @@ Object.assign(frappe.utils, {
 		return content.html();
 	},
 	scroll_to: function (
-		element,
-		animate = true,
-		additional_offset,
-		element_to_be_scrolled,
-		callback,
-		highlight_element = false
-	) {
-		if (frappe.flags.disable_auto_scroll) return;
+        element,
+        animate = true,
+        additional_offset = 0,
+        element_to_be_scrolled = $("html, body"),
+        callback,
+        highlight_element = false
+    ) {
+        if (frappe.flags.disable_auto_scroll) return;
 
-		element_to_be_scrolled = element_to_be_scrolled || $("html, body");
-		let scroll_top = 0;
-		if (element) {
-			// If a number is passed, just subtract the offset,
-			// otherwise calculate scroll position from element
-			scroll_top =
-				typeof element == "number"
-					? element - cint(additional_offset)
-					: this.get_scroll_position(element, additional_offset);
-		}
+        let scroll_top = 0;
+        if (element) {
+            scroll_top = typeof element === "number" 
+                ? element - additional_offset 
+                : this.get_scroll_position(element, additional_offset);
+        }
 
-		if (scroll_top < 0) {
-			scroll_top = 0;
-		}
+        scroll_top = Math.max(scroll_top, 0);
 
-		const highlight = () => {
-			if (highlight_element) {
-				$(element).addClass("highlight");
-				document.addEventListener(
-					"click",
-					function () {
-						$(element).removeClass("highlight");
-					},
-					{ once: true }
-				);
-			}
-		};
-		// already there
-		if (scroll_top == element_to_be_scrolled.scrollTop()) {
-			return highlight();
-		}
+        const highlight = () => {
+            if (highlight_element) {
+                $(element).addClass("highlight");
+                document.addEventListener(
+                    "click",
+                    function () {
+                        $(element).removeClass("highlight");
+                    },
+                    { once: true }
+                );
+            }
+        };
 
-		if (animate) {
-			element_to_be_scrolled
-				.animate({
-					scrollTop: scroll_top,
-				})
-				.promise()
-				.then(() => {
-					highlight();
-					callback && callback();
-				});
-		} else {
-			element_to_be_scrolled.scrollTop(scroll_top);
-		}
-	},
-	get_scroll_position: function (element, additional_offset) {
-		let header_offset =
-			$(".navbar").height() + $(".page-head:visible").height() || $(".navbar").height();
-		let scroll_top = $(element).offset().top - header_offset - cint(additional_offset);
-		return scroll_top;
-	},
+        if (scroll_top === element_to_be_scrolled.scrollTop()) {
+            highlight();
+            if (callback) callback();
+            return;
+        }
+
+        if (animate) {
+            element_to_be_scrolled.stop().animate(
+                { scrollTop: scroll_top },
+                { 
+                    duration: 0, 
+                    complete: () => {
+                        highlight();
+                        if (callback) callback();
+                    } 
+                }
+            );
+        } else {
+            element_to_be_scrolled.scrollTop(scroll_top);
+            highlight();
+            if (callback) callback();
+        }
+    },
+	get_scroll_position: function (element, additional_offset = 0) {
+        const header_offset = $(".navbar").height() + $(".page-head:visible").height() || $(".navbar").height();
+        return $(element).offset().top - header_offset - additional_offset;
+    },
 	filter_dict: function (dict, filters) {
 		var ret = [];
 		if (typeof filters == "string") {
