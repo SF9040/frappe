@@ -81,7 +81,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 		this.dialog = new frappe.ui.Dialog({
 			title: title,
 			fields: this.fields,
-			size: "large",
+			size: "extra-large",
 			primary_action_label: this.primary_action_label || __("Get Items"),
 			secondary_action_label: __("Make {0}", [__(this.doctype)]),
 			primary_action: () => {
@@ -427,7 +427,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 	}
 
 	get_datatable_columns() {
-		let custom_fields = ['customer_name', 'shipping_address_name']; // Replace with your actual fieldnames
+		let custom_fields = ['customer_name', 'shipping_address_name', 'total_net_weight']; // Replace with your actual fieldnames
 		
 		if (this.get_query && this.get_query().query && this.columns) return this.columns;
 
@@ -561,7 +561,7 @@ frappe.ui.form.MultiSelectDialog = class MultiSelectDialog {
 	get_args_for_search() {
 		let [filters, filter_fields] = this.get_filters_from_setters();
 
-		let custom_fields = ['customer_name', 'shipping_address_name', 'billing_address_name', 'branch']; // Replace with your actual fieldnames
+		let custom_fields = ['customer_name', 'shipping_address_name', 'total_net_weight' ,'billing_address_name', 'branch']; // Replace with your actual fieldnames
 		const existing_custom_fields = custom_fields.filter(field => 
 			frappe.meta.has_field(this.doctype, field)
 		);
